@@ -1,0 +1,17 @@
+<div>
+  <!--
+  <input type="text" ng-model="url" size="80"/>
+  <button ng-click="fetch()">fetch</button><br>
+  -->
+
+  <!--
+  <pre>http status code: {{status}}</pre>
+-->
+  <p>Product: Flight; Category: Check-in</p>
+  <ul>
+  <!--<li ng-repeat="a in articles">ID: {{a.articles['ID']}}, Title: {{a.articles['Title']}}, Content: {{a.articles['Content']}}</li>-->
+  <li ng-repeat="art in articles"><a href="#/detail_{{art.ID}}">{{art.Title}}</a></li>
+  </ul>
+
+  <!--<pre>{{articles}}</pre>-->
+</div>
