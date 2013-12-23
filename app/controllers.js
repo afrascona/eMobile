@@ -1,7 +1,7 @@
-demoApp.controller('FetchController', function ($scope, $http, $templateCache) {
+demoApp.controller('FetchController', function ($scope, $http, $routeParams, $templateCache) {
   $scope.method = 'JSONP';
-  $scope.url = 'http://support.expedia.com/cc/kfController/getAngular/4/35?callback=JSON_CALLBACK';
-  console.log('not');
+  $scope.url = 'http://support.expedia.com/cc/kfController/getAngular/' + $routeParams.prodID + '/' + $routeParams.catID + '?callback=JSON_CALLBACK';
+  
   $scope.fetch = function() {
     $scope.code = null;
     $scope.response = null;
@@ -34,7 +34,7 @@ demoApp.controller('FetchController', function ($scope, $http, $templateCache) {
 });
 
 demoApp.controller('DetailController', function ($scope, $routeParams, $http) {
-  console.log($routeParams.articleID);
+  //console.log($routeParams.articleID);
   $scope.method = 'JSONP';
   $scope.url = 'http://support.expedia.com/cc/kfController/getFullAnswersAngularAjax/' + $routeParams.articleID + '?callback=JSON_CALLBACK';
  
@@ -57,4 +57,62 @@ demoApp.controller('DetailController', function ($scope, $routeParams, $http) {
   };
   
   $scope.fetch();
+});
+
+demoApp.controller('ProductController', function($scope, $routeParams){
+  $scope.products = [
+    {'ID':'4','Name':'Flights','Categories':
+      [
+        {'ID':'35','Name':'Check-in'},
+        {'ID':'59','Name':'Seat'},
+        {'ID':'31','Name':'Baggage'},
+        {'ID':'51','Name':'Review Itinerary'},
+        {'ID':'34','Name':'Change / Cancel'},
+        {'ID':'30','Name':'Amenities and Accessibility'},
+        {'ID':'53','Name':'Payment / Receipt'},
+        {'ID':'72','Name':'Travel Documents'},
+        {'ID':'32','Name':'Booking'}
+      ]
+    },
+    {'ID':'2','Name':'Hotels','Categories':
+      [
+        
+      ]
+    },
+    {'ID':'4','Name':'Vacation Packages','Categories':
+      [
+
+      ]
+    },
+    {'ID':'3','Name':'Cars','Categories':
+      [
+
+      ]
+    },
+    {'ID':'2','Name':'Cruises','Categories':
+      [
+
+      ]
+    },
+    {'ID':'2','Name':'Things To Do','Categories':
+      [
+
+      ]
+    },
+    {'ID':'2','Name':'Rewards','Categories':
+      [
+
+      ]
+    },
+    {'ID':'2','Name':'Other','Categories':
+      [
+
+      ]
+    },
+    {'ID':'2','Name':'Travel Alerts','Categories':
+      [
+
+      ]
+    }
+  ];
 });
