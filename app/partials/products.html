@@ -1,0 +1,41 @@
+<div>
+	<!-- Start Products & Categories Object -->
+	<ul ng-model="products">
+    	<li ng-repeat="prod in products"><a ng-href="#/product_{{prod.ID}}" ng-click="manageVis(prod.ID)">{{prod.Name}}</a>
+    		<ul ng-show="prod.Visible">
+        		<li ng-repeat="cat in prod.Categories"><a ng-href="#/product_{{prod.ID}}/category_{{cat.ID}}">{{cat.Name}}</a>
+        		<!-- End Products & Categories Object -->
+
+		        	<ng-if="catID">
+						<ul>
+							<ng ng-if="productSpecific(cat.ID,prod.ID)">
+								<li ng-model="articleList"  ng-repeat="ans in articleList" ><a ng-href="#/product_{{prod.ID}}/category_{{cat.ID}}/detail_{{ans.ID}}">{{ans.Title}}</a>
+
+									<!-- Article Content -->
+									<div ng-model="answerDetail" ng-if="answerSpecific(cat.ID,prod.ID,ans.ID)">
+										<p>
+											<strong>{{answerDetail.Title}}</strong><br />
+											Article {{answerDetail.ID}} - Detail
+										</p>
+
+										<div ng-bind-html="answerDetail.Content"></div>
+										<br />
+										<p>
+											<strong>Related Answers:</strong>
+										</p>
+										<ul>
+											<li ng-repeat="rel in answerDetail.Related">
+												<a ng-href="#/product_{{prod.ID}}/category_{{cat.ID}}/detail_{{rel.ID}}">{{rel.Title}}</a>
+											</li>
+										</ul>
+										<br />
+									</div>
+
+								</li>
+						</ul>
+        		</li>
+     		</ul>
+    	</li>
+	</ul>
+
+</div>

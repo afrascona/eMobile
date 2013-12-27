@@ -1,26 +1,32 @@
-var demoApp = angular.module('demoApp', ['ngRoute', 'ngSanitize']);
+var demoApp = angular.module('demoApp', ['ngRoute', 'ngSanitize', 'ngAnimate', 'ngResource', 'ui.bootstrap']);
 
 demoApp.config(function ($routeProvider) {
 	$routeProvider
 		.when('/',
 		{
-			controller: 'ProductController',
-			templateUrl: 'app/partials/product.html'
+			controller: 'MainController',
+			templateUrl: 'app/partials/products.html'
 		})
+		
 		.when('/product_:prodID',
 		{
-			controller: 'FetchController',
-			templateUrl: 'app/partials/mpa.html'
+			controller: 'MainController',
+			templateUrl: 'app/partials/products.html'
 		})
+
 		.when('/product_:prodID/category_:catID',// from partial: #/product_{{prod.ID}}/category_{{cat.ID}}
 		{
-			controller: 'FetchController',
-			templateUrl: 'app/partials/productcategory.html'
+			controller: 'MainController',
+			templateUrl: 'app/partials/products.html'
 		})
-		.when('/detail_:articleID',
+		
+		.when('/product_:prodID/category_:catID/detail_:ansID',
 		{
-			controller: 'DetailController',
-			templateUrl: 'app/partials/detail.html'
+			controller: 'MainController',
+			templateUrl: 'app/partials/products.html'
 		})
-		.otherwise({ redirectTo: '/' });
+		
+		.otherwise({
+			redirectTo: '/'
+		});
 });

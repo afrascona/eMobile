@@ -1,25 +1,10 @@
 <div>
-  <!--
-  <input type="text" ng-model="url" size="80"/>
-  <button ng-click="fetch()">fetch</button><br>
-  -->
-  <a href="#/">Back</a>
-  <br />
-
-  <p>Article {{answer.ID}} - Detail</p>
-  <br />
-  <strong>{{answer.Title}}</strong>
-  <br />
+  <p><strong>{{answer.Title}}</strong><br />Article {{answer.ID}} - Detail</p>
 
   <div ng-bind-html="answer.Content"></div>
 
   <ul>
-    <li ng-repeat="rel in answer.Related"><a href="#/detail_{{rel.ID}}">{{rel.Title}}</a></li>
+    <li ng-repeat="rel in answer.Related"><a ng-href="#/detail_{{rel.ID}}">{{rel.Title}}</a></li>
   </ul>
 
-  <br />
-  <a href="#/">Back</a>
-  <br />
-
-  <!--<pre>{{answer}}</pre>-->
 </div>
