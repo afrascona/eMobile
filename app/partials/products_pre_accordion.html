@@ -1,21 +1,17 @@
-<!-- Start Products & Categories Object -->
 <div>
-<accordion>
-	<accordion-group ng-repeat="prod in products" is-open="{{prod.Visible}}">
-    	<accordion-heading>
-      		<div ng-click="update(prod.ID)">{{prod.Name}} <i class="pull-right" ng-class="{'icon-chevron-down': prod.Visible, 'icon-chevron-right': !prod.Visible}"></i></div>
-    	</accordion-heading>
-    		<ul>
+	<!-- Start Products & Categories Object -->
+	<ul ng-model="products">
+    	<li ng-repeat="prod in products"><a ng-href="#/product_{{prod.ID}}" ng-click="manageVis(prod.ID)">{{prod.Name}}</a>
+    		<ul ng-show="prod.Visible">
         		<li ng-repeat="cat in prod.Categories"><a ng-href="#/product_{{prod.ID}}/category_{{cat.ID}}">{{cat.Name}}</a>
         		<!-- End Products & Categories Object -->
 
 		        	<ng-if="catID">
-						<ul class="articlesList">
+						<ul>
 							<ng ng-if="productSpecific(cat.ID,prod.ID)">
-								<li ng-model="articleList"  ng-repeat="ans in articleList" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
-									<a ng-href="#/product_{{prod.ID}}/category_{{cat.ID}}/detail_{{ans.ID}}">{{ans.Title}}</a>
+								<li ng-model="articleList"  ng-repeat="ans in articleList" ><a ng-href="#/product_{{prod.ID}}/category_{{cat.ID}}/detail_{{ans.ID}}">{{ans.Title}}</a>
 
-									<!-- Article Content
+									<!-- Article Content -->
 									<div ng-model="answerDetail" ng-if="answerSpecific(cat.ID,prod.ID,ans.ID)">
 										<p>
 											<strong>{{answerDetail.Title}}</strong><br />
@@ -34,14 +30,12 @@
 										</ul>
 										<br />
 									</div>
-									-->
 
 								</li>
-							</ng>
 						</ul>
         		</li>
      		</ul>
+    	</li>
+	</ul>
 
-    </accordion-group>
-</accordion>
 </div>

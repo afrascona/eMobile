@@ -1,10 +1,14 @@
-<div>
-  <p><strong>{{answer.Title}}</strong><br />Article {{answer.ID}} - Detail</p>
 
-  <div ng-bind-html="answer.Content"></div>
+<div class="answerDetail">
 
+  <p><strong>{{answerDetail.Title}}</strong><br />{{answerDetail.ID}}</p>
+  
+  <div ng-bind-html="answerDetail.Content"></div>
+  
   <ul>
-    <li ng-repeat="rel in answer.Related"><a ng-href="#/detail_{{rel.ID}}">{{rel.Title}}</a></li>
+    <li ng-repeat="rel in answerDetail.Related">
+      <a href="#/product_{{answerDetail.prodID}}/category_{{answerDetail.catID}}/detail_{{rel.ID}}">{{rel.Title}}</a>
+    </li>
   </ul>
 
 </div>

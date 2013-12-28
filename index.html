@@ -14,35 +14,12 @@
     <script src="app/service.js"></script>
     <script src="app/controllers.js"></script>
 
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-    <!--<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css">-->
-
+    
   </head>
   <body>
-    
-    <!--
-    <div class="products" ng-controller="ProductsController">
-      <ul>
-        <li ng-repeat="prod in products"><a href="#/product_{{prod.ID}}">{{prod.Name}}</a>{{prod.Name}}
-          <ul>
-            <li ng-repeat="cat in prod.Categories"><a href="#/product_{{prod.ID}}/category_{{cat.ID}}">{{cat.Name}}</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    -->
-    <div ng-view></div>
-    <!--
-    <hr>
-    <div ng-controller="MainController as main">    
-      <pre>$location.path() = {{main.$location.path()}}</pre>
-      <pre>$route.current.templateUrl = {{main.$route.current.templateUrl}}</pre>
-      <pre>$route.current.params = {{main.$route.current.params}}</pre>
-      <pre>$route.current.scope.name = {{main.$route.current.scope.name}}</pre>
-      <pre>$routeParams = {{main.$routeParams}}</pre>
-    </div>
-    -->
-  
+    <div class="ng-view"></div>
   </body>
 </html>

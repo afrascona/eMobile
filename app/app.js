@@ -13,8 +13,8 @@ demoApp.config(function ($routeProvider) {
 			controller: 'MainController',
 			templateUrl: 'app/partials/products.html'
 		})
-
-		.when('/product_:prodID/category_:catID',// from partial: #/product_{{prod.ID}}/category_{{cat.ID}}
+		
+		.when('/product_:prodID/category_:catID',
 		{
 			controller: 'MainController',
 			templateUrl: 'app/partials/products.html'
@@ -23,9 +23,8 @@ demoApp.config(function ($routeProvider) {
 		.when('/product_:prodID/category_:catID/detail_:ansID',
 		{
 			controller: 'MainController',
-			templateUrl: 'app/partials/products.html'
+			templateUrl: 'app/partials/detail.html'
 		})
-		
 		.otherwise({
 			redirectTo: '/'
 		});

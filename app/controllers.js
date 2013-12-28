@@ -1,5 +1,8 @@
-demoApp.controller('MainController', function ($scope, $routeParams, GetCategories, SearchService) {
-  //$scope.answersincategory = false;
+demoApp.controller('MainController', function ($scope, $routeParams, $location, GetCategories, SearchService) {
+
+  $scope.update = function(prod){
+    $location.path('/product_' + prod).replace();
+  }
   
   $scope.products = GetCategories;
 
@@ -8,13 +11,12 @@ demoApp.controller('MainController', function ($scope, $routeParams, GetCategori
       ($scope.products[$i]['ID'] == id) ? $scope.products[$i]['Visible'] = true:$scope.products[$i]['Visible'] = false;
     }
   }
-  
   $scope.manageVis($routeParams.prodID);
 
   svc = SearchService;
 
   $scope.articleList = function () {
-    if($routeParams.prodID && $routeParams.catID){
+    if($routeParams.prodID && $routeParams.catID && !$routeParams.ansID){
       //svc = SearchService;
       kfMethod = 'getAngular';
       svc.articles({prod:$routeParams.prodID, cat:$routeParams.catID, kfMethod:kfMethod}).getArticles(function(data) {
@@ -31,6 +33,9 @@ demoApp.controller('MainController', function ($scope, $routeParams, GetCategori
       //svc2 = SearchService;
       kfMethod = 'getFullAnswersAngularAjax';
       svc.answer({ans:$routeParams.ansID, kfMethod:kfMethod}).getAnswer(function(detail) {
+        detail['prodID'] = $routeParams.prodID;
+        detail['catID'] = $routeParams.catID;
+        detail['ansID'] = $routeParams.ansID;
         return $scope.answerDetail = detail;
         //console.log($scope.answerDetail);
       });

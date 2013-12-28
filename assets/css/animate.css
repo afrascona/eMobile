@@ -1,59 +1,38 @@
-.view-animate-container {
+.slide-animate-container {
   position:relative;
-  position:relative;
-  height:1500px;
   background:white;
   border:1px solid black;
+  height:40px;
   overflow:hidden;
-  width:400px;
 }
  
-.view-animate {
+.slide-animate {
   padding:10px;
 }
  
-.view-animate.ng-enter, .view-animate.ng-leave {
+.slide-animate.ng-enter, .slide-animate.ng-leave {
   -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
   transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
- 
-  display:block;
-  width:100%;
-  border-left:1px solid black;
  
   position:absolute;
   top:0;
   left:0;
   right:0;
   bottom:0;
+  display:block;
   padding:10px;
-
-  opacity: 0.25;
 }
-.view-animate.ng-leave{
-  -webkit-transition:all cuic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  transtion:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s);
-
-  display:inline;
-  width:100%;
-  border-right:1px solid red;
-  position:aboslute;
+ 
+.slide-animate.ng-enter {
+  top:-50px;
+}
+.slide-animate.ng-enter.ng-enter-active {
   top:0;
-  left:400px;
-  right:0px;
-  bottom:0px;
-  padding:10px;
-  opacity:1;
 }
-.view-animate.ng-enter {
-  left:-100%;
+ 
+.slide-animate.ng-leave {
+  top:0;
 }
-.view-animate.ng-leave {
-  left:-100%;
-}
-
-.view-animate.ng-enter.ng-enter-active {
-  left:0px;
-}
-.view-animate.ng-leave.ng-leave-active {
-  left:0px;
+.slide-animate.ng-leave.ng-leave-active {
+  top:50px;
 }

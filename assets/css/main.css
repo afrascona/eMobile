@@ -2,3 +2,23 @@
 	float:left;
 	margin-right: 50px
 }
+.answerDetail{
+	/*margin:10px;*/
+}
+a{
+	color: #005580;
+}
+li {
+	line-height: 15px;
+}
+ul{
+	list-style-type: none;
+}
+ul ul{
+	margin:0px 0px 10px 50px;
+	list-style-type: circle;
+}
+.articlesList{
+	margin: 10px 0px 10px 50px;
+	color: red;
+}
