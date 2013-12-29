@@ -13,9 +13,10 @@
 		        	<!--<ng-if="cat.ID">-->
 						<ul class="articlesList">
 							<ng ng-if="productSpecific(cat.ID,prod.ID)">
-								<li ng-show="showLoader" ng-init="showLoader=false">{{showLoader}}:Loading...</li>
-								<li ng-repeat="ans in articleList">
-									<a ng-href="#/product_{{prod.ID}}/category_{{cat.ID}}/detail_{{ans.ID}}">{{ans.Title}}</a>
+
+								<li ng-repeat="ans in articleList" class="repeated-item">
+									
+									<a ng-bind="ans.Title" ng-click="direction('front');" ng-href="#/product_{{prod.ID}}/category_{{cat.ID}}/detail_{{ans.ID}}">{{ans.Title}}</a>
 
 									<!-- Article Content
 									<div ng-model="answerDetail" ng-if="answerSpecific(cat.ID,prod.ID,ans.ID)">

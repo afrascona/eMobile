@@ -3,12 +3,14 @@
   <head>
     <title>eMobile Angular & Bootstrap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery.js"></script>
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-route.min.js"></script>
     <script src="lib/angular-sanitize.min.js"></script>
     <script src="lib/angular-animate.min.js"></script>
     <script src="lib/angular-resource.min.js"></script>
-
+    <script src="lib/angular-touch.min.js"></script>
 
     <script src="app/app.js"></script>
     <script src="app/factory.js"></script>
@@ -27,11 +29,9 @@
     
   </head>
   <body>
-
-    <div class="ng-view"></div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!--<script src="https://code.jquery.com/jquery.js"></script>-->
+    <div class="view-animate-container">
+    <div class="well slide ng-view"></div>
+  </div>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!--<script src="js/bootstrap.min.js"></script>-->
     <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.7.0.js"></script>

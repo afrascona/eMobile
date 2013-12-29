@@ -20,8 +20,9 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
   $scope.svc = SearchService;
 
   $scope.getArticleList = function (prodID, catID) {
-    $scope.showLoader = 'hello';
-    $scope.articleList = "";
+    $scope.articleList = [];
+    $scope.articleList[0] = {};
+    $scope.articleList[0]['Title'] = "Loading...";
     $routeParams.prodID = prodID;
     $routeParams.catID = catID;
     kfMethodName = 'getAngular';
@@ -34,15 +35,20 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
 //  $scope.articleList = $scope.articleList();
 
   $scope.answerDetail = function () {
-      kfMethod = 'getFullAnswersAngularAjax';
-      $scope.newDetail = $scope.svc.answer({ans:$routeParams.ansID, kfMethod:kfMethod}).getAnswer(function(detail) {
-        detail['prodID'] = $routeParams.prodID;
-        detail['catID'] = $routeParams.catID;
-        detail['ansID'] = $routeParams.ansID;
-        $scope.answerDetail = detail;
-      });
+    //$scope.answerDetail['Title'] = "Loading...";
+    //$scope.answerDetail[0] = {};
+    //$scope.answerDetail[0]['Title'] = "Loading...";
+    kfMethod = 'getFullAnswersAngularAjax';
+    $scope.newDetail = $scope.svc.answer({ans:$routeParams.ansID, kfMethod:kfMethod}).getAnswer(function(detail) {
+      detail['prodID'] = $routeParams.prodID;
+      detail['catID'] = $routeParams.catID;
+      detail['ansID'] = $routeParams.ansID;
+      $scope.answerDetail = detail;
+    });
   }
-$scope.answerDetail = $scope.answerDetail();
+  if($routeParams.ansID){
+    $scope.answerDetail = $scope.answerDetail();
+  }
 
   $scope.productSpecific = function(cat,prod){
     //console.log(cat);
@@ -61,4 +67,16 @@ $scope.answerDetail = $scope.answerDetail();
       }else{ return false; }
     }
   }
+
+
+  $scope.next = function(){
+    $scope.movedToNext = true;
+    $scope.movedToPrevious = false;
+  }
+
+  $scope.previous = function(){
+      $scope.movedToPrevious = true;
+      $scope.movedToNext = false;     
+  }
+
 });

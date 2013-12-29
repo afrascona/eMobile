@@ -1,6 +1,6 @@
-var demoApp = angular.module('demoApp', ['ngRoute', 'ngSanitize', 'ngAnimate', 'ngResource', 'ui.bootstrap']);
+var demoApp = angular.module('demoApp', ['ngRoute', 'ngSanitize', 'ngAnimate', 'ngResource', 'ui.bootstrap', 'ngTouch']);
 
-demoApp.config(function ($routeProvider) {
+demoApp.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider
 		.when('/',
 		{
@@ -31,4 +31,4 @@ demoApp.config(function ($routeProvider) {
 			redirectTo: '/'
 		});
 
-});
+}]);
