@@ -36,9 +36,9 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
   $scope.answerDetail = function () {
       kfMethod = 'getFullAnswersAngularAjax';
       $scope.newDetail = $scope.svc.answer({ans:$routeParams.ansID, kfMethod:kfMethod}).getAnswer(function(detail) {
-        //detail['prodID'] = $routeParams.prodID;
-        //detail['catID'] = $routeParams.catID;
-        //detail['ansID'] = $routeParams.ansID;
+        detail['prodID'] = $routeParams.prodID;
+        detail['catID'] = $routeParams.catID;
+        detail['ansID'] = $routeParams.ansID;
         $scope.answerDetail = detail;
       });
   }
