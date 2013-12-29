@@ -3,16 +3,18 @@
 <accordion>
 	<accordion-group ng-repeat="prod in products" is-open="{{prod.Visible}}">
     	<accordion-heading>
-      		<div ng-click="update(prod.ID)">{{prod.Name}} <i class="pull-right" ng-class="{'icon-chevron-down': prod.Visible, 'icon-chevron-right': !prod.Visible}"></i></div>
+      		<div ng-click="manageVis(prod.ID)">{{prod.Name}} <i class="pull-right" ng-class="{'icon-chevron-down': prod.Visible, 'icon-chevron-right': !prod.Visible}"></i></div>
     	</accordion-heading>
+    		
     		<ul>
-        		<li ng-repeat="cat in prod.Categories"><a ng-href="#/product_{{prod.ID}}/category_{{cat.ID}}">{{cat.Name}}</a>
+        		<li ng-repeat="cat in prod.Categories"><a href='' ng-click="showLoader=true;getArticleList(prod.ID, cat.ID)" class="categoryLinks">{{cat.Name}}</a>
         		<!-- End Products & Categories Object -->
 
-		        	<ng-if="catID">
+		        	<!--<ng-if="cat.ID">-->
 						<ul class="articlesList">
 							<ng ng-if="productSpecific(cat.ID,prod.ID)">
-								<li ng-model="articleList"  ng-repeat="ans in articleList" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+								<li ng-show="showLoader" ng-init="showLoader=false">{{showLoader}}:Loading...</li>
+								<li ng-repeat="ans in articleList">
 									<a ng-href="#/product_{{prod.ID}}/category_{{cat.ID}}/detail_{{ans.ID}}">{{ans.Title}}</a>
 
 									<!-- Article Content
@@ -35,9 +37,7 @@
 										<br />
 									</div>
 									-->
-
 								</li>
-							</ng>
 						</ul>
         		</li>
      		</ul>

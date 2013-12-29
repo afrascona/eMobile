@@ -4,12 +4,14 @@ demoApp.config(function ($routeProvider) {
 	$routeProvider
 		.when('/',
 		{
+			reloadOnSearch: false,
 			controller: 'MainController',
 			templateUrl: 'app/partials/products.html'
 		})
 		
 		.when('/product_:prodID',
 		{
+			reloadOnSearch: false,
 			controller: 'MainController',
 			templateUrl: 'app/partials/products.html'
 		})
@@ -28,4 +30,5 @@ demoApp.config(function ($routeProvider) {
 		.otherwise({
 			redirectTo: '/'
 		});
+
 });
