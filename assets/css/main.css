@@ -37,3 +37,7 @@ ul ul{
 	color: red;
 }
 .accordion-body.in { overflow:visible; }
+.relatedAnswers li{
+	list-style-type: circle;
+	color: red;
+}
