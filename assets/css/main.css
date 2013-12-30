@@ -31,3 +31,4 @@ ul ul{
 .dropdown-menu{
 	padding:10px 10px 10px 10px;
 }
+.accordion-body.in { overflow:visible; }

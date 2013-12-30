@@ -19,7 +19,7 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
   $scope.products = GetCategories;
 
   $scope.manageVis = function(id){
-    console.log(id);
+    //console.log(id);
     for($i=$scope.products.length-1;$i>-1;$i--){
       //($scope.products[$i]['ID'] == id) ? $scope.products[$i]['Visible'] = true:$scope.products[$i]['Visible'] = false;
       if($scope.products[$i]['ID'] == id){
