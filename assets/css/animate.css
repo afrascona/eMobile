@@ -10,10 +10,10 @@ html, body{
 
 .view-animate-container > .slide.ng-enter,
 .view-animate-container > .slide.ng-leave {
-    -webkit-transition: all ease 0.5s;
-       -moz-transition: all ease 0.5s;
-         -o-transition: all ease 0.5s;
-            transition: all ease 0.5s;  
+    -webkit-transition: all ease-in-out 0.5s;
+       -moz-transition: all ease-in-out 0.5s;
+         -o-transition: all ease-in-out 0.5s;
+            transition: all ease-in-out 0.5s;  
     width: 100%;
     position:absolute;
 }

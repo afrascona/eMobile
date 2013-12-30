@@ -27,3 +27,7 @@ ul ul{
 .categoryLinks{
 	cursor: pointer;
 }
+
+.dropdown-menu{
+	padding:10px 10px 10px 10px;
+}

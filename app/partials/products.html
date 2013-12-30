@@ -1,3 +1,5 @@
+<div ng-bind-html="breadcrumb"></div>
+
 <!-- Start Products & Categories Object -->
 <div>
 <accordion>
@@ -6,15 +8,18 @@
       		<div ng-click="manageVis(prod.ID)">{{prod.Name}} <i class="pull-right" ng-class="{'icon-chevron-down': prod.Visible, 'icon-chevron-right': !prod.Visible}"></i></div>
     	</accordion-heading>
     		
-    		<ul>
-        		<li ng-repeat="cat in prod.Categories"><a href='' ng-click="showLoader=true;getArticleList(prod.ID, cat.ID)" class="categoryLinks">{{cat.Name}}</a>
+    		<ul class="nav nav-pills nav-stacked">
+        		<li class="dropdown" ng-repeat="cat in prod.Categories"><a class="dropdown-toggle"
+       data-toggle="dropdown" href='' ng-click="showLoader=true;getArticleList(prod.ID, cat.ID)" >{{cat.Name}}</a>
         		<!-- End Products & Categories Object -->
 
 		        	<!--<ng-if="cat.ID">-->
-						<ul class="articlesList">
+						<ul class="dropdown-menu">
 							<ng ng-if="productSpecific(cat.ID,prod.ID)">
+								
+								<span ng-bind-html="loadingIcon"></span>
 
-								<li ng-repeat="ans in articleList" class="repeated-item">
+								<li ng-repeat="ans in articleList">
 									
 									<a ng-bind="ans.Title" ng-click="direction('front');" ng-href="#/product_{{prod.ID}}/category_{{cat.ID}}/detail_{{ans.ID}}">{{ans.Title}}</a>
 
