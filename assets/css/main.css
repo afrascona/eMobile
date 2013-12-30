@@ -31,4 +31,9 @@ ul ul{
 .dropdown-menu{
 	padding:10px 10px 10px 10px;
 }
+.dropdown-menu li{
+	margin-left: 20px;
+	list-style-type: circle;
+	color: red;
+}
 .accordion-body.in { overflow:visible; }

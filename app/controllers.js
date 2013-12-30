@@ -48,7 +48,7 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
   $scope.svc = SearchService;
 
   $scope.getArticleList = function (prodID, catID) {
-    $scope.loadingIcon = '<i class="icon-refresh"></i> Loading...';
+    $scope.loadingIcon = '<i style="color:red;" class="icon-refresh"></i> Loading...';
     $scope.articleList = [];
     //$scope.articleList[0] = {};
     //$scope.articleList[0]['Title'] = "Loading...";
