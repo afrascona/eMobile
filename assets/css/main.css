@@ -1,5 +1,6 @@
 body{
 	padding:10px;
+	background: #666;
 }
 .ng-view{
 	position:relative;
@@ -19,7 +20,7 @@ ul ul{
 }
 .articlesList{
 	margin: 10px 0px 10px 50px;
-	color: red;
+	color: #0065b8;
 }
 .categoryLinks{
 	cursor: pointer;
@@ -31,21 +32,74 @@ ul ul{
 .dropdown-menu li{
 	margin-left: 20px;
 	list-style-type: circle;
-	color: red;
+	color: #0065b8;
 	line-height: 25px;
+}
+.open>.dropdown-menu{
+	background: rgba(243, 243, 243, 1);
 }
 .accordion-body.in { overflow:visible; }
 .relatedAnswers li{
 	list-style-type: circle;
-	color: red;
+	color: #0065b8;
 }
 .nav-pills>li>a {
 	padding-top: 5px;
 	padding-bottom: 5px;
+}
+.breadcrumb{
+	/*
+	background-color: rgba(255, 198, 11, 0.35);
+	border-radius:25px;
+	*/
+	margin-bottom:10px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	border-radius:0;
+}
+.breadcrumb>li{
+	text-shadow:none;
 }
 .breadcrumb img{
 	height: 25px;
 }
 .breadcrumb p{
 	margin-bottom: 5px;
+}
+.accordion{
+	margin-bottom:10px;
+}
+.accordion-group{
+	background: white;
+	border-right: 4px solid #0065b8 !important;
+}
+.headerBar{
+	border-radius: 8px;
+	border-top: 6px solid #ffcb00!important;
+	border-right: 4px solid #0065b8 !important;
+}
+.headerBar p{
+	margin: 0;
+	background: white;
+	padding: 5px;
+}
+.headerBar img{
+	margin-left:5px;
+}
+
+#footer-copyright {
+	text-align: left;
+	padding: 12px 0 5px 20px;
+	line-height: 8px;
+	height: 12px;
+	background-color: #f5f5f5;
+	border-radius: 4px;
+	border-bottom: 6px solid #ffcb00!important;
+	border-right: 4px solid #0065b8 !important;
+}
+
+.well {
+	margin-bottom: 10px;
+	border-right: 4px solid #0065b8 !important;
+	/*border-right: 4px solid #0065b8 !important;*/
 }

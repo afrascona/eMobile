@@ -2,8 +2,9 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
 
   $scope.breadcrumbMiddle = '';
   $scope.makeBreadCrumb = function(breadcrumbMiddle){
-    return '<div id="breadcrumb"><ul class="breadcrumb"><p><img src="assets/images/exp-logo.png" /></p><li><a href="#">Customer Support</a></li>' + breadcrumbMiddle + '</ul></div>';
+    return '<div class="headerBar"><p><img src="assets/images/exp-logo.png" /></p><div id="breadcrumb"><ul class="breadcrumb"><li><a href="#">Customer Support</a></li>' + breadcrumbMiddle + '</ul></div></div>';
   }
+
   $scope.breadcrumb = '';
   $scope.breadcrumb = $scope.makeBreadCrumb('');
 
