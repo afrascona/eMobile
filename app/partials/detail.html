@@ -2,13 +2,16 @@
 
 <div class="answerDetail well">
 
+  <span ng-bind-html="loadingIcon"></span>
+
   <p><strong>{{answerDetail.Title}}</strong>
   
   <div ng-bind-html="answerDetail.Content"></div>
 </div>
 
+<ng-if="answerDetail.Related">
 <div class="well relatedAnswers">
-  <p><strong>Related Answers:</strong></p>
+  <p ng-bind-html="relatedText"></p>
   <ul>
     <li ng-repeat="rel in answerDetail.Related">
       <a ng-href="#/product_{{answerDetail.prodID}}/category_{{answerDetail.catID}}/detail_{{rel.ID}}">{{rel.Title}}</a>

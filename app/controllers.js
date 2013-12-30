@@ -1,5 +1,5 @@
 demoApp.controller('MainController', function ($scope, $route, $routeParams, $location, $templateCache, $rootScope, GetCategories, SearchService) {
-  
+
   $scope.breadcrumbMiddle = '';
   $scope.makeBreadCrumb = function(breadcrumbMiddle){
     return '<ul class="breadcrumb"><li><a href="#">Home</a>' + breadcrumbMiddle + '</ul>';
@@ -48,7 +48,7 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
   $scope.svc = SearchService;
 
   $scope.getArticleList = function (prodID, catID) {
-    $scope.loadingIcon = '<i style="color:red;" class="icon-refresh"></i> Loading...';
+    $scope.loadingIcon = '<i class="icon-refresh"></i> Loading...';
     $scope.articleList = [];
     //$scope.articleList[0] = {};
     //$scope.articleList[0]['Title'] = "Loading...";
@@ -65,6 +65,9 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
 //  $scope.articleList = $scope.articleList();
 
   $scope.answerDetail = function () {
+    $scope.loadingIcon = '<i class="icon-refresh"></i> Loading...';
+    $scope.answerDetail = false;
+    //$scope.answerDetail[0]['Related'] = false;
     //$scope.answerDetail['Title'] = "Loading...";
     //$scope.answerDetail[0] = {};
     //$scope.answerDetail[0]['Title'] = "Loading...";
@@ -77,6 +80,8 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
 
       $scope.breadcrumbMiddle = ' <span class="divider">/</span><li><a href="#/product_' + $routeParams.prodID + '/category_' + $routeParams.catID + '/detail_' + $routeParams.ansID + '">' + detail['Title'] + '</a></li>';
       $scope.breadcrumb = $scope.makeBreadCrumb($scope.breadcrumbMiddle);
+      $scope.relatedText = "<strong>Related Answers:</strong>";
+      $scope.loadingIcon = '';
     });
   }
   if($routeParams.ansID){
