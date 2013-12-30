@@ -2,9 +2,9 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
 
   $scope.breadcrumbMiddle = '';
   $scope.makeBreadCrumb = function(breadcrumbMiddle){
-    return '<ul class="breadcrumb"><li><a href="#">Home</a>' + breadcrumbMiddle + '</ul>';
+    return '<div id="breadcrumb"><ul class="breadcrumb"><p><img src="assets/images/exp-logo.png" /></p><li><a href="#">Customer Support</a></li>' + breadcrumbMiddle + '</ul></div>';
   }
-
+  $scope.breadcrumb = '';
   $scope.breadcrumb = $scope.makeBreadCrumb('');
 
   /*<li><a href="#">Home</a> <span class="divider">/</span></li>\
@@ -35,7 +35,7 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
     //$location.hash('product_' + id).replace();
     //$location.path('product_' + id).replace().notify(false);
     if(id != 0){
-      $scope.breadcrumbMiddle = '<span class="divider">/ </span><li><a href="#/product_' + $routeParams.prodID + '">' + $routeParams.prodName + '</a></li>';
+      $scope.breadcrumbMiddle = '<span class="divider"> / </span><li><a href="#/product_' + $routeParams.prodID + '">' + $routeParams.prodName + '</a></li>';
       $scope.breadcrumb = $scope.makeBreadCrumb($scope.breadcrumbMiddle);
     }
   }
@@ -78,7 +78,7 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
       detail['ansID'] = $routeParams.ansID;
       $scope.answerDetail = detail;
 
-      $scope.breadcrumbMiddle = ' <span class="divider">/</span><li><a href="#/product_' + $routeParams.prodID + '/category_' + $routeParams.catID + '/detail_' + $routeParams.ansID + '">' + detail['Title'] + '</a></li>';
+      $scope.breadcrumbMiddle = '<span class="divider"> / </span><li><a href="#/product_' + $routeParams.prodID + '/category_' + $routeParams.catID + '/detail_' + $routeParams.ansID + '">' + detail['Title'] + '</a></li>';
       $scope.breadcrumb = $scope.makeBreadCrumb($scope.breadcrumbMiddle);
       $scope.relatedText = "<strong>Related Answers:</strong>";
       $scope.loadingIcon = '';

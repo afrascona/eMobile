@@ -10,9 +10,6 @@ body{
 a{
 	color: #005580;
 }
-li {
-	/*line-height: 15px;*/
-}
 ul{
 	list-style-type: none;
 }
@@ -35,9 +32,20 @@ ul ul{
 	margin-left: 20px;
 	list-style-type: circle;
 	color: red;
+	line-height: 25px;
 }
 .accordion-body.in { overflow:visible; }
 .relatedAnswers li{
 	list-style-type: circle;
 	color: red;
+}
+.nav-pills>li>a {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.breadcrumb img{
+	height: 25px;
+}
+.breadcrumb p{
+	margin-bottom: 5px;
 }
