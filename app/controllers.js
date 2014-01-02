@@ -1,17 +1,16 @@
-demoApp.controller('MainController', function ($scope, $route, $routeParams, $location, $templateCache, $rootScope, GetCategories, SearchService) {
-
-  $scope.breadcrumbMiddle = '';
-  $scope.makeBreadCrumb = function(breadcrumbMiddle){
-    return '<div class="headerBar"><p><img src="assets/images/exp-logo.png" /></p><div id="breadcrumb"><ul class="breadcrumb"><li><a href="#">Customer Support</a></li>' + breadcrumbMiddle + '</ul></div></div>';
+demoApp.controller('MainController', function ($scope, $route, $routeParams, $location, $templateCache, $rootScope, $timeout, $interval, GetCategories, SearchService) {
+ 
+  $scope.setTest = function(viewSet){
+    $rootScope.rootScopeTest = viewSet;
   }
 
-  $scope.breadcrumb = '';
-  $scope.breadcrumb = $scope.makeBreadCrumb('');
+  $scope.go = function(path,newAnimation) {
+    $rootScope.rootScopeTest = newAnimation;
+    $location.path(path);
+  }
 
-  /*<li><a href="#">Home</a> <span class="divider">/</span></li>\
-      <li><a href="#/product_' + $routeParams.prodID + '">Product</a> <span class="divider">/</span></li>\
-      <li><a href="#/product_' + $routeParams.prodID + '/category_' + $routeParams.catID + '">Category</a> <span class="divider">/</span></li>\
-      <li class="active">Article Detail</li>';*/
+  $scope.breadcrumbMiddle = '';
+
 
   $scope.updateURL = function(newURL){
     $location.path(newURL).replace();
@@ -20,7 +19,6 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
   $scope.products = GetCategories;
 
   $scope.manageVis = function(id){
-    //console.log(id);
     for($i=$scope.products.length-1;$i>-1;$i--){
       //($scope.products[$i]['ID'] == id) ? $scope.products[$i]['Visible'] = true:$scope.products[$i]['Visible'] = false;
       if($scope.products[$i]['ID'] == id){
@@ -31,13 +29,9 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
         $scope.products[$i]['Visible'] = false;
       }
     }
-    //$location.path('product_'+id);
-    //$location.search('product',id);
-    //$location.hash('product_' + id).replace();
-    //$location.path('product_' + id).replace().notify(false);
+
     if(id != 0){
-      $scope.breadcrumbMiddle = '<span class="divider"> / </span><li><a href="#/product_' + $routeParams.prodID + '">' + $routeParams.prodName + '</a></li>';
-      $scope.breadcrumb = $scope.makeBreadCrumb($scope.breadcrumbMiddle);
+      $scope.breadcrumbMiddle = '<a href="#/product_' + $routeParams.prodID + '">' + $routeParams.prodName + '</a>';
     }
   }
   if($routeParams.prodID){
@@ -68,10 +62,6 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
   $scope.answerDetail = function () {
     $scope.loadingIcon = '<i class="icon-refresh"></i> Loading...';
     $scope.answerDetail = false;
-    //$scope.answerDetail[0]['Related'] = false;
-    //$scope.answerDetail['Title'] = "Loading...";
-    //$scope.answerDetail[0] = {};
-    //$scope.answerDetail[0]['Title'] = "Loading...";
     kfMethod = 'getFullAnswersAngularAjax';
     $scope.newDetail = $scope.svc.answer({ans:$routeParams.ansID, kfMethod:kfMethod}).getAnswer(function(detail) {
       detail['prodID'] = $routeParams.prodID;
@@ -79,19 +69,45 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
       detail['ansID'] = $routeParams.ansID;
       $scope.answerDetail = detail;
 
-      $scope.breadcrumbMiddle = '<span class="divider"> / </span><li><a href="#/product_' + $routeParams.prodID + '/category_' + $routeParams.catID + '/detail_' + $routeParams.ansID + '">' + detail['Title'] + '</a></li>';
-      $scope.breadcrumb = $scope.makeBreadCrumb($scope.breadcrumbMiddle);
+      $scope.breadcrumbMiddle = '<a href="#/product_' + $routeParams.prodID + '/category_' + $routeParams.catID + '/detail_' + $routeParams.ansID + '">' + detail['Title'] + '</a>';
+      //$scope.breadcrumb = $scope.makeBreadCrumb($scope.breadcrumbMiddle);
       $scope.relatedText = "<strong>Related Answers:</strong>";
       $scope.loadingIcon = '';
     });
   }
+
   if($routeParams.ansID){
     $scope.answerDetail = $scope.answerDetail();
   }
 
+
+  $scope.$on('detailReturned', function(event, mass) {
+    console.log(mass);
+    console.log('detailReturned');
+    //$scope.myClassVar = 'view-frame-2';
+    console.log($scope.myClassVar);
+  });
+  $scope.$on('articleListReturned', function(event, mass) {
+    console.log(mass);
+    console.log('articleListReturned');
+    //$scope.myClassVar = 'view-frame-1';
+    console.log($scope.myClassVar);
+    /*
+    stop = $interval(function() {
+      $scope.myClassVar = 'view-frame-2';
+    }, 2000);
+*/
+  });
+  $scope.$on('productsReturned', function(event, mass) {
+    console.log(mass);
+    console.log('productsReturned');
+    //$scope.myClassVar = 'view-frame-1';
+    console.log($scope.myClassVar);
+  });
+
+
+
   $scope.productSpecific = function(cat,prod){
-    //console.log(cat);
-    //console.log(prod);
     if(cat != undefined && prod != undefined){
       if(cat == $routeParams.catID && prod == $routeParams.prodID){
         return true;
@@ -107,20 +123,103 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
     }
   }
 
-
-  $scope.next = function(){
-    $scope.movedToNext = true;
-    $scope.movedToPrevious = false;
+  /*
+  var styles = {
+    // appear from right
+    front: '.enter-setup {   position:absolute;   -webkit-transition: 0.5s ease-out all;   -webkit-transform:translate3d(100%,0,0)  }  .enter-setup.enter-start {   position:absolute;  -webkit-transform:translate3d(0,0,0)}  .leave-setup {   position:absolute;   -webkit-transition: 0.5s ease-out all;   -webkit-transform:translate3d(0,0,0)} .leave-setup.leave-start {   position:absolute;  -webkit-transform:translate3d(-100%,0,0) };',
+    // appear from left
+    back: '.enter-setup {   position:absolute;   -webkit-transition: 0.5s ease-out all; -webkit-transform:translate3d(-100%,0,0)}  .enter-setup.enter-start {   position:absolute;   -webkit-transform:translate3d(0,0,0) }  .leave-setup {   position:absolute;   -webkit-transition: 0.5s ease-out all;  -webkit-transform:translate3d(0,0,0)} .leave-setup.leave-start {   position:absolute;  -webkit-transform:translate3d(100%,0,0) };'
+  };
+  
+  $scope.direction = function(dir) {
+    // update the animations classes
+    $rootScope.style = styles[dir];
   }
 
-  $scope.previous = function(){
-      $scope.movedToPrevious = true;
-      $scope.movedToNext = false;     
+  $scope.go = function(path) {
+    $location.path(path);
   }
+  $scope.direction('front');
+  */
 
 })
 .directive('loadingIcon', function() {
   return {
     loadingIcon: '<i class="icon-refresh"></i>'
+  }
+})
+ .directive('pane', function(){
+    return {
+      restrict: 'E',
+      transclude: true,
+      scope: { title:'@' },
+      template: '<div style="border: 1px solid black;">' +
+                  '<div style="background-color: gray">{{title}}</div>' +
+                  '<div ng-transclude></div>' +
+                '</div>'
+    };
+});
+
+demoApp.animation('.view-frame-3', function() {
+  return {
+    enter : function(element, done) {
+      element.css('opacity',0);
+      jQuery(element).animate({
+        opacity: 1
+      }, done);
+      /*
+      opacity: 0.25,
+    left: "+=50",
+    height: "toggle"
+    */
+      // optional onDone or onCancel callback
+      // function to handle any post-animation
+      // cleanup operations
+      return function(isCancelled) {
+        if(isCancelled) {
+          jQuery(element).stop();
+        }
+      }
+    },
+    leave : function(element, done) {
+      element.css('opacity', 1);
+      jQuery(element).animate({
+        opacity: 0
+      }, done);
+ 
+      // optional onDone or onCancel callback
+      // function to handle any post-animation
+      // cleanup operations
+      return function(isCancelled) {
+        if(isCancelled) {
+          jQuery(element).stop();
+        }
+      }
+    },
+    move : function(element, done) {
+      element.css('opacity', 0);
+      jQuery(element).animate({
+        opacity: 1
+      }, done);
+ 
+      // optional onDone or onCancel callback
+      // function to handle any post-animation
+      // cleanup operations
+      return function(isCancelled) {
+        if(isCancelled) {
+          jQuery(element).stop();
+        }
+      }
+    },
+ 
+    // you can also capture these animation events
+    addClass : function(element, className, done) {
+      console.log('addClass'  + ' ' + element + ' ' + className + ' ' + done);
+      console.log($scope.myClassVar);
+    },
+    removeClass : function(element, className, done) {
+      console.log('removeClass' + ' ' + element + ' ' + className + ' ' + done);
+      console.log($scope.myClassVar);
+    }
   }
 });
