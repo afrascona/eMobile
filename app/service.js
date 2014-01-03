@@ -20,7 +20,7 @@ demoApp.factory('SearchService', function($resource) {
 
     _search.relevant = function(opts){
         return $resource(
-            'http://support.expedia.com/cc/kfController/searchAjaxIse/1/:searchTerm',
+            'http://support.expedia.com/cc/kfController/searchAngularIse/1/:searchTerm',
             {kfMethod: opts.KfMethod, searchTerm: opts.searchTerm},
             {getResults: { method:'JSONP', params: {callback: 'JSON_CALLBACK'}, isArray:false, cache: false, responseType:'json' } }
         );

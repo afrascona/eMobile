@@ -1,0 +1,358 @@
+.view-container {
+  position: relative;
+}
+/* Index loads w/o animation */
+.view-frame-0.ng-enter {
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.view-frame-0.ng-leave {
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+/*
+    -webkit-animation: 1.0s slide0;
+    -moz-animation: 1.0s slide0;
+    -o-animation: 1.0s slide0;
+    animation: 1.0s slide0;
+    z-index: 100;
+    */
+}
+/* Page 2 animated in from the right, index animates out to the left */
+.view-frame-1.ng-enter {
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    -webkit-animation: 1.0s slide2;
+    -moz-animation: 1.0s slide2;
+    -o-animation: 1.0s slide2;
+    animation: 1.0s slide2;
+    z-index: 100;
+}
+
+.view-frame-1.ng-leave {
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width:100%;
+
+    -webkit-animation: 1.0s slide0;
+    -moz-animation: 1.0s slide0;
+    -o-animation: 1.0s slide0;
+    animation: 1.0s slide0;
+    z-index: 100;
+}
+/* Page 2 animates out to the right, index animates back from the left */
+.view-frame-2.ng-enter {
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width:100%;
+
+    -webkit-animation: 1.0s slide3;
+    -moz-animation: 1.0s slide3;
+    -o-animation: 1.0s slide3;
+    animation: 1.0s slide3;
+    z-index: 100;
+}
+
+.view-frame-2.ng-leave {
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  -webkit-animation: 1.0s slide1;
+  -moz-animation: 1.0s slide1;
+  -o-animation: 1.0s slide1;
+  animation: 1.0s slide1;
+  z-index: 100;
+}
+
+/* Slide 0 - From active to the left */
+@keyframes slide0 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  100% {
+    left: -100%;
+    top: 0;
+  }
+}
+
+
+@-moz-keyframes slide0 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  100% {
+    left: -100%;
+    top: 0;
+  }
+}
+
+@-webkit-keyframes slide0 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  100% {
+    left: -100%;
+    top: 0;
+  }
+}
+ 
+@keyframes slide0 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  100% {
+    left: -100%;
+    top: 0;
+  }
+}
+
+@-moz-keyframes slide0 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  100% {
+    left: -100%;
+    top: 0;
+  }
+}
+
+@-webkit-keyframes slide0 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  100% {
+    left: -100%;
+    top: 0;
+  }
+}
+
+/* slide 1 - from active to the right */
+
+@keyframes slide1 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  100% {
+    left: 100%;
+    top: 0;
+  }
+}
+
+
+@-moz-keyframes slide1 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  100% {
+    left: 100%;
+    top: 0;
+  }
+}
+
+@-webkit-keyframes slide1 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  100% {
+    left: 100%;
+    top: 0;
+  }
+}
+ 
+@keyframes slide1 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  100% {
+    left: 100%;
+    top: 0;
+  }
+}
+
+@-moz-keyframes slide1 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  100% {
+    left: 100%;
+    top: 0;
+  }
+}
+
+@-webkit-keyframes slide1 {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  100% {
+    left: 100%;
+    top: 0;
+  }
+}
+
+/* slide 2 - from the right to active */
+
+@keyframes slide2 {
+  0% {
+    left: 100%;
+    top: 0;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+
+@-moz-keyframes slide2 {
+  0% {
+    left: 100%;
+    top: 0;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+@-webkit-keyframes slide2 {
+  0% {
+    left: 100%;
+    top: 0;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+ 
+@keyframes slide2 {
+  0% {
+    left: 100%;
+    top: 0;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+@-moz-keyframes slide2 {
+  0% {
+    left: 100%;
+    top: 0;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+@-webkit-keyframes slide2 {
+  0% {
+    left: 100%;
+    top: 0;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+/* slide 3 - from the left to active */
+
+@keyframes slide3 {
+  0% {
+    left: -100%;
+    top: 0;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+
+@-moz-keyframes slide3 {
+  0% {
+    left: -100%;
+    top: 0;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+@-webkit-keyframes slide3 {
+  0% {
+    left: -100%;
+    top: 0;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+ 
+@keyframes slide3 {
+  0% {
+    left: -100%;
+    top: 0;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+@-moz-keyframes slide3 {
+  0% {
+    left: -100%;
+    top: 0;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+@-webkit-keyframes slide3 {
+  0% {
+    left: -100%;
+    top: 0;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}

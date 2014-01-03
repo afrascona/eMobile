@@ -61,6 +61,7 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
     angular.forEach($scope.products, function(value, key) {
       if($scope.prodID == value.ID){
         $scope.prodName = value.Name;
+        $scope.prodIcon = value.icon;
         //$rootScope.setBread($scope.prodID, $scope.prodName);
         
         angular.forEach(value.Categories, function(value, key){
@@ -109,34 +110,6 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
     });
   }
   /*
-  if($routeParams.ansID){
-    $scope.answerDetail = $scope.answerDetail();
-  }
-
-  $scope.$on('detailReturned', function(event, mass) {
-    console.log(mass);
-    console.log('detailReturned');
-    //$scope.myClassVar = 'view-frame-2';
-    console.log($scope.myClassVar);
-  });
-  $scope.$on('articleListReturned', function(event, mass) {
-    console.log(mass);
-    console.log('articleListReturned');
-    //$scope.myClassVar = 'view-frame-1';
-    console.log($scope.myClassVar);
-    /*
-    stop = $interval(function() {
-      $scope.myClassVar = 'view-frame-2';
-    }, 2000);
-
-  });
-  $scope.$on('productsReturned', function(event, mass) {
-    console.log(mass);
-    console.log('productsReturned');
-    //$scope.myClassVar = 'view-frame-1';
-    console.log($scope.myClassVar);
-  });
-
   $scope.productSpecific = function(cat,prod){
     if(cat != undefined && prod != undefined){
       if(cat == $routeParams.catID && prod == $routeParams.prodID){
@@ -152,7 +125,7 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
       }else{ return false; }
     }
   }
-*/
+  */
 })
 /*
 .directive('loadingIcon', function() {
@@ -262,8 +235,9 @@ demoApp.controller('BreadcrumbController', function ($scope, $route, $routeParam
 });
 
 demoApp.controller('SearchController', function ($scope, $route, $routeParams, $rootScope, $location, SearchService) {
-  
+
   $scope.svc = SearchService;
+  $scope.searchCustomerSupportTxt = "Search Customer Support";
 
   $scope.getRelevantList = function (searchTerm) {
 
@@ -276,7 +250,7 @@ demoApp.controller('SearchController', function ($scope, $route, $routeParams, $
 
     kfMethodName = 'searchAjaxIse/1';
     $scope.newList = $scope.svc.relevant({kfMethod:kfMethodName, searchTerm:$scope.searchTerm}).getResults(function(data) {
-        $scope.articleList = data;
+        $scope.resultList = data;
         $scope.loadingIcon = '';
     });
   }

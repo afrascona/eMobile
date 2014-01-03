@@ -12,7 +12,7 @@ demoApp.factory('GetCategories', function(){
 		    {'ID':'53','Name':'Payment / Receipt'},
 		    {'ID':'72','Name':'Travel Documents'},
 		    {'ID':'32','Name':'Booking'}
-		  ]
+		  ],'icon':'plane2'
 		},
 		{'ID':'6','Name':'Hotels','Visible':false,'Categories':
 		  [
@@ -23,7 +23,7 @@ demoApp.factory('GetCategories', function(){
 		    {'ID':'53','Name':'Payment / Receipt'},
 		    {'ID':'58','Name':'Reviews and Ratings'},
 		    {'ID':'32','Name':'Booking'}
-		  ]
+		  ],'icon':'hotel'
 		},
 		{'ID':'11','Name':'Vacation Packages','Visible':false,'Categories':
 		  [
@@ -35,7 +35,7 @@ demoApp.factory('GetCategories', function(){
 		    {'ID':'53','Name':'Payment / Receipt'},
 		    {'ID':'50','Name':'Insurance'},
 		    {'ID':'32','Name':'Booking'}
-		  ]
+		  ], 'icon':'bags5'
 		},
 		{'ID':'9','Name':'Cars','Visible':false,'Categories':
 		  [
@@ -45,7 +45,7 @@ demoApp.factory('GetCategories', function(){
 		    {'ID':'30','Name':'Amenities and Accessibility'},
 		    {'ID':'53','Name':'Payment / Receipt'},
 		    {'ID':'32','Name':'Booking'}
-		  ]
+		  ], 'icon':'car'
 		},
 		{'ID':'10','Name':'Cruises','Visible':false,'Categories':
 		  [
@@ -55,7 +55,7 @@ demoApp.factory('GetCategories', function(){
 		    {'ID':'30','Name':'Amenities and Accessibility'},
 		    {'ID':'53','Name':'Payment / Receipt'},
 		    {'ID':'32','Name':'Booking'}
-		  ]
+		  ], 'icon':'cruise'
 		},
 		{'ID':'7','Name':'Things To Do','Visible':false,'Categories':
 		  [
@@ -65,13 +65,13 @@ demoApp.factory('GetCategories', function(){
 		    {'ID':'53','Name':'Payment / Receipt'},
 		    {'ID':'37','Name':'Expedia Local Expert'},
 		    {'ID':'32','Name':'Booking'}
-		  ]
+		  ], 'icon':'ticket'
 		},
 		{'ID':'12','Name':'Rewards','Visible':false,'Categories':
 		  [
 		    {'ID':'284','Name':'Collect / Redeem'},
 		    {'ID':'282','Name':'Enrollment'}
-		  ]
+		  ], 'icon':'package'
 		},
 		{'ID':'3','Name':'Other','Visible':false,'Categories':
 		  [
@@ -82,12 +82,12 @@ demoApp.factory('GetCategories', function(){
 		    {'ID':'52','Name':'Passport / Visa'},
 		    {'ID':'55','Name':'Best Price Guarantee'},
 		    {'ID':'56','Name':'Privacy / Security'}
-		  ]
+		  ], 'icon':'question'
 		},
 		{'ID':'5','Name':'Travel Alerts','Visible':false,'Categories':
 		  [
 		    {'ID':'61','Name':'General'}
-		  ]
+		  ], 'icon':'alert'
 		}
 	];
 
