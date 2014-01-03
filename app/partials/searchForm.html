@@ -1,8 +1,8 @@
 <div class="viewsWrapper">
-	<form novalidate class="css-form">
-	Search: <input type="text" ng-model="user.search" required /><br />
+	<form novalidate class="css-form" ng-controller="SearchController">
+		<input type="text" ng-model="searchTerm" required /> <button ng-click="getRelevantList(searchTerm)">Search</button>
 	</form>
-	</div>
+	<div ng-bind="{{searchTerm}}">{{searchTerm}}</div>
 
 	<style type="text/css">
 		.css-form input.ng-invalid.ng-dirty {
@@ -13,4 +13,16 @@
 			background-color: #78FA89;
 		}
 	</style>
+
+	<accordion>
+    <accordion-group ng-repeat="ans in articleList" >
+        <accordion-heading is-open="isopen">
+            <a href="" ng-click='getAnswerDetail({{prodID}},{{catID}},{{ans.ID}});'>
+              <!--ng-click="manageVis(prod.ID)"-->
+              {{ans.Title}} <i class="pull-right" ng-class="{'icon-chevron-down': isopen, 'icon-chevron-right': !isopen}"></i>
+              
+            </a>
+        </accordion-heading>
+    </accordion-group>
+	</accordion>
 </div>

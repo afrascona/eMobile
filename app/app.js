@@ -23,6 +23,7 @@ demoApp.config(['$routeProvider', function ($routeProvider) {
 		
 		.when('/product_:prodID/category_:catID',
 		{
+			reloadOnSearch: false,
 			controller: 'MainController',
 			templateUrl: 'app/partials/detail.html',
 		})
@@ -32,6 +33,12 @@ demoApp.config(['$routeProvider', function ($routeProvider) {
 			reloadOnSearch: false,
 			controller: 'MainController',
 			templateUrl: 'app/partials/detail.html',
+		})
+
+		.when('/search::searchTerm',
+		{
+			controller: 'SearchController',
+			templateUrl: 'app/partials/searchResults.html'
 		})
 		/*
 		.otherwise({

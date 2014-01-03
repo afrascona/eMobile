@@ -3,11 +3,22 @@ body{
 	background: white;
 	font-family: Arial;
 }
+
+@media (max-width: 767px){
+	body {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+
 h1,h2,h3,h4 {
-	margin-left: 10px;
+	margin-left: 12px;
 }
 form{
-	margin: 0px 10px;
+	margin: 10px 0px;
+}
+input{
+	margin-bottom:0px !important;
 }
 /*
 .ng-view{
@@ -15,7 +26,7 @@ form{
 }
 */
 .viewsWrapper{
-	padding: 5px 5px;
+	padding: 0px 5px;
 	border-right: 1px solid #f1f1f1;
 	border-left: 1px solid #f1f1f1;
 }
@@ -55,7 +66,7 @@ ul ul{
 .open>.dropdown-menu{
 	background: rgba(243, 243, 243, 1);
 }
-.accordion-body.in { overflow:visible; }
+
 .relatedAnswers li{
 	list-style-type: circle;
 	color: #0065b8;
@@ -69,10 +80,10 @@ ul ul{
 	background-color: rgba(255, 198, 11, 0.35);
 	border-radius:25px;
 	*/
-	margin-bottom:10px;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	border-radius:0;
+	background:white;
+	margin:10px 12px;
+	padding: 0px 0px;
+	/*border-radius:0;*/
 }
 .breadcrumb>li{
 	text-shadow:none;
@@ -83,17 +94,25 @@ ul ul{
 .breadcrumb p{
 	margin-bottom: 5px;
 }
+
+/* Accordion */
+
 .accordion{
 	margin-bottom:10px;
 }
+.accordion-body.in { overflow:visible; }
 .accordion-group{
 	background: white;
-	border-right: 4px solid #0065b8 !important;
+	/*border-right: 4px solid #0065b8 !important;*/
 }
+.accordion-toggle{
+	background: #f1f1f1;
+}
+
 .headerBar{
 	/*border-radius: 8px;*/
 	border-top: 6px solid #ffcb00!important;
-	border-right: 4px solid #0065b8 !important;
+	/*border-right: 4px solid #0065b8 !important;*/
 }
 .headerBar p{
 	margin: 0;
@@ -117,6 +136,5 @@ ul ul{
 
 .well {
 	margin-bottom: 10px;
-	border-right: 4px solid #0065b8 !important;
 	/*border-right: 4px solid #0065b8 !important;*/
 }

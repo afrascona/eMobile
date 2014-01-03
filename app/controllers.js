@@ -16,27 +16,40 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
   $scope.products = GetCategories;
   $rootScope.initBread();
 
+  $scope.lastAccordion = '';
   $scope.manageVis = function(id){
+    if($scope.lastAccordion == id){
+      $scope.repeatClick = false;
+      $scope.Accordion = '';
+    }else{
+      $scope.repeatClick = true;
+      $scope.lastAccordion = id;
+    }
+    //console.log(id);
     for($i=$scope.products.length-1;$i>-1;$i--){
       //($scope.products[$i]['ID'] == id) ? $scope.products[$i]['Visible'] = true:$scope.products[$i]['Visible'] = false;
       if($scope.products[$i]['ID'] == id){
         $routeParams.prodID = $scope.products[$i]['ID'];
         $routeParams.prodName = $scope.products[$i]['Name'];
-        $scope.products[$i]['Visible'] = true;
+        $scope.products[$i]['Visible'] = $scope.repeatClick;
       }else{
+        $scope.lastAccordion = id;
         $scope.products[$i]['Visible'] = false;
       }
     }
 
     if(id != 0){
-      $rootScope.breadcrumbMiddle = '<a href="#/product_' + $routeParams.prodID + '">' + $routeParams.prodName + '</a>';
+      $rootScope.initBread();
+      $rootScope.setBread($routeParams.prodID, $routeParams.prodName);
     }
   }
+  
   if($routeParams.prodID){
     $scope.manageVis($routeParams.prodID);
   }else{
     $scope.manageVis('');
   }
+  
 
   $scope.svc = SearchService;
 
@@ -48,7 +61,7 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
     angular.forEach($scope.products, function(value, key) {
       if($scope.prodID == value.ID){
         $scope.prodName = value.Name;
-        $rootScope.setBread($scope.prodID, $scope.prodName);
+        //$rootScope.setBread($scope.prodID, $scope.prodName);
         
         angular.forEach(value.Categories, function(value, key){
           if($scope.catID == value.ID){
@@ -246,4 +259,26 @@ demoApp.controller('BreadcrumbController', function ($scope, $route, $routeParam
     $rootScope.rootAnimation = newAnimation;
     $location.path(path);
   }
+});
+
+demoApp.controller('SearchController', function ($scope, $route, $routeParams, $rootScope, $location, SearchService) {
+  
+  $scope.svc = SearchService;
+
+  $scope.getRelevantList = function (searchTerm) {
+
+    $scope.searchTerm = searchTerm;
+
+    $scope.loadingIcon = '<i class="icon-refresh"></i> Loading...';
+    $scope.relevantList = [];
+    //$scope.articleList[0] = {};
+    //$scope.articleList[0]['Title'] = "Loading...";
+
+    kfMethodName = 'searchAjaxIse/1';
+    $scope.newList = $scope.svc.relevant({kfMethod:kfMethodName, searchTerm:$scope.searchTerm}).getResults(function(data) {
+        $scope.articleList = data;
+        $scope.loadingIcon = '';
+    });
+  }
+
 });
