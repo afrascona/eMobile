@@ -1,22 +1,20 @@
 demoApp.controller('MainController', function ($scope, $route, $routeParams, $location, $templateCache, $rootScope, $timeout, $interval, GetCategories, SearchService) {
  
   $scope.setTest = function(viewSet){
-    $rootScope.rootScopeTest = viewSet;
+    $rootScope.rootAnimation = viewSet;
   }
 
   $scope.go = function(path,newAnimation) {
-    $rootScope.rootScopeTest = newAnimation;
+    $rootScope.rootAnimation = newAnimation;
     $location.path(path);
   }
-
-  $scope.breadcrumbMiddle = '';
-
 
   $scope.updateURL = function(newURL){
     $location.path(newURL).replace();
   }
   
   $scope.products = GetCategories;
+  $rootScope.initBread();
 
   $scope.manageVis = function(id){
     for($i=$scope.products.length-1;$i>-1;$i--){
@@ -31,7 +29,7 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
     }
 
     if(id != 0){
-      $scope.breadcrumbMiddle = '<a href="#/product_' + $routeParams.prodID + '">' + $routeParams.prodName + '</a>';
+      $rootScope.breadcrumbMiddle = '<a href="#/product_' + $routeParams.prodID + '">' + $routeParams.prodName + '</a>';
     }
   }
   if($routeParams.prodID){
@@ -43,11 +41,33 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
   $scope.svc = SearchService;
 
   $scope.getArticleList = function (prodID, catID) {
+
+    $scope.prodID = prodID;
+    $scope.catID = catID;
+
+    angular.forEach($scope.products, function(value, key) {
+      if($scope.prodID == value.ID){
+        $scope.prodName = value.Name;
+        $rootScope.setBread($scope.prodID, $scope.prodName);
+        
+        angular.forEach(value.Categories, function(value, key){
+          if($scope.catID == value.ID){
+            $scope.catName = value.Name;
+            $rootScope.setBread($scope.prodID, $scope.prodName, $scope.catID, $scope.catName)
+          }
+        });
+      }
+    });
+    
+
+    //console.log($scope.products);
     $scope.loadingIcon = '<i class="icon-refresh"></i> Loading...';
     $scope.articleList = [];
     //$scope.articleList[0] = {};
     //$scope.articleList[0]['Title'] = "Loading...";
     $routeParams.prodID = prodID;
+    $scope.prodID = prodID;
+    $scope.catID = catID;
     $routeParams.catID = catID;
     kfMethodName = 'getAngular';
     $scope.newList = $scope.svc.articles({prod:$routeParams.prodID, cat:$routeParams.catID, kfMethod:kfMethodName}).getArticles(function(data) {
@@ -57,29 +77,28 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
         //$route.current = '/product_' + $routeParams.prodID + '/category_' + $routeParams.catID + '/';
     });
   }
-//  $scope.articleList = $scope.articleList();
+  if($routeParams.prodID && $routeParams.catID){
+    $scope.getArticleList($routeParams.prodID,$routeParams.catID);
+  }
 
-  $scope.answerDetail = function () {
+  $scope.getAnswerDetail = function (prodID, catID, ansID) {
+    $scope.answerDetail = [];
     $scope.loadingIcon = '<i class="icon-refresh"></i> Loading...';
     $scope.answerDetail = false;
     kfMethod = 'getFullAnswersAngularAjax';
-    $scope.newDetail = $scope.svc.answer({ans:$routeParams.ansID, kfMethod:kfMethod}).getAnswer(function(detail) {
-      detail['prodID'] = $routeParams.prodID;
-      detail['catID'] = $routeParams.catID;
-      detail['ansID'] = $routeParams.ansID;
+    $scope.newDetail = $scope.svc.answer({ans: ansID, kfMethod:kfMethod}).getAnswer(function(detail) {
+      detail['prodID'] = prodID;
+      detail['catID'] =  catID;
+      detail['ansID'] =  ansID;
       $scope.answerDetail = detail;
-
-      $scope.breadcrumbMiddle = '<a href="#/product_' + $routeParams.prodID + '/category_' + $routeParams.catID + '/detail_' + $routeParams.ansID + '">' + detail['Title'] + '</a>';
-      //$scope.breadcrumb = $scope.makeBreadCrumb($scope.breadcrumbMiddle);
       $scope.relatedText = "<strong>Related Answers:</strong>";
       $scope.loadingIcon = '';
     });
   }
-
+  /*
   if($routeParams.ansID){
     $scope.answerDetail = $scope.answerDetail();
   }
-
 
   $scope.$on('detailReturned', function(event, mass) {
     console.log(mass);
@@ -96,7 +115,7 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
     stop = $interval(function() {
       $scope.myClassVar = 'view-frame-2';
     }, 2000);
-*/
+
   });
   $scope.$on('productsReturned', function(event, mass) {
     console.log(mass);
@@ -104,8 +123,6 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
     //$scope.myClassVar = 'view-frame-1';
     console.log($scope.myClassVar);
   });
-
-
 
   $scope.productSpecific = function(cat,prod){
     if(cat != undefined && prod != undefined){
@@ -122,27 +139,9 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
       }else{ return false; }
     }
   }
-
-  /*
-  var styles = {
-    // appear from right
-    front: '.enter-setup {   position:absolute;   -webkit-transition: 0.5s ease-out all;   -webkit-transform:translate3d(100%,0,0)  }  .enter-setup.enter-start {   position:absolute;  -webkit-transform:translate3d(0,0,0)}  .leave-setup {   position:absolute;   -webkit-transition: 0.5s ease-out all;   -webkit-transform:translate3d(0,0,0)} .leave-setup.leave-start {   position:absolute;  -webkit-transform:translate3d(-100%,0,0) };',
-    // appear from left
-    back: '.enter-setup {   position:absolute;   -webkit-transition: 0.5s ease-out all; -webkit-transform:translate3d(-100%,0,0)}  .enter-setup.enter-start {   position:absolute;   -webkit-transform:translate3d(0,0,0) }  .leave-setup {   position:absolute;   -webkit-transition: 0.5s ease-out all;  -webkit-transform:translate3d(0,0,0)} .leave-setup.leave-start {   position:absolute;  -webkit-transform:translate3d(100%,0,0) };'
-  };
-  
-  $scope.direction = function(dir) {
-    // update the animations classes
-    $rootScope.style = styles[dir];
-  }
-
-  $scope.go = function(path) {
-    $location.path(path);
-  }
-  $scope.direction('front');
-  */
-
+*/
 })
+/*
 .directive('loadingIcon', function() {
   return {
     loadingIcon: '<i class="icon-refresh"></i>'
@@ -160,18 +159,14 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
     };
 });
 
-demoApp.animation('.view-frame-3', function() {
+.animation('.view-frame-3', function() {
   return {
     enter : function(element, done) {
       element.css('opacity',0);
       jQuery(element).animate({
         opacity: 1
       }, done);
-      /*
-      opacity: 0.25,
-    left: "+=50",
-    height: "toggle"
-    */
+
       // optional onDone or onCancel callback
       // function to handle any post-animation
       // cleanup operations
@@ -221,5 +216,34 @@ demoApp.animation('.view-frame-3', function() {
       console.log('removeClass' + ' ' + element + ' ' + className + ' ' + done);
       console.log($scope.myClassVar);
     }
+  }
+});
+*/
+
+demoApp.controller('BreadcrumbController', function ($scope, $route, $routeParams, $rootScope, $location) {
+
+  $rootScope.initBread = function(){
+    $rootScope.breadcrumb = [{ 'ID': 0, 'Name': 'Home', 'destination': '/', 'animation': 'view-frame-2' }];
+  };
+
+  $rootScope.setBread = function(){
+
+    if($rootScope.breadcrumb.length == 0){
+      //$rootScope.breadcrumb.push({ 'ID': 0, 'Name': 'Home', 'destination': '/', 'animation': 'view-frame-2' }); 
+    }
+    console.log($rootScope.breadcrumb);
+
+    switch(arguments.length){
+      case 2: newItem = { 'ID': arguments[0], 'Name': arguments[1], 'destination': '/product_' + arguments[0], 'animation': 'view-frame-2' }; break;
+      case 4: newItem = { 'ID': arguments[2], 'Name': arguments[3], 'destination': '/product_' + arguments[0] + '/category_' + arguments[2], 'animation': 'view-frame-2' }; break;
+      case 6: newItem = { 'ID': arguments[4], 'Name': arguments[5], 'destination': '/product_' + arguments[0] + '/category_' + arguments[2] + '/detail_' + arguments[4], 'animation': 'view-frame-1' }; break;
+    }
+    $rootScope.breadcrumb.push(newItem);
+  };
+
+  $scope.go = function(path,newAnimation) {
+    $rootScope.initBread();
+    $rootScope.rootAnimation = newAnimation;
+    $location.path(path);
   }
 });

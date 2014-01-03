@@ -24,14 +24,7 @@ demoApp.config(['$routeProvider', function ($routeProvider) {
 		.when('/product_:prodID/category_:catID',
 		{
 			controller: 'MainController',
-			templateUrl: 'app/partials/products.html',
-			resolve: {
-		    	delay: function($q, $timeout) {
-		        	var delay = $q.defer();
-		        	$timeout(delay.resolve, 1000);
-		    		return delay.promise;
-		    	}
-		    }
+			templateUrl: 'app/partials/detail.html',
 		})
 		
 		.when('/product_:prodID/category_:catID/detail_:ansID',

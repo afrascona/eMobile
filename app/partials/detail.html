@@ -1,28 +1,39 @@
 <div class="viewsWrapper">
+    <h4 class="categoryHeader">{{prodName}} / {{catName}}</h1>
 
-    <div ng-include src="'app/partials/breadcrumb.html'"></div>
+    <accordion>
+    <accordion-group ng-repeat="ans in articleList" >
+        <accordion-heading is-open="isopen">
+            <a href="" ng-click='getAnswerDetail({{prodID}},{{catID}},{{ans.ID}});'>
+              <!--ng-click="manageVis(prod.ID)"-->
+              {{ans.Title}} <i class="pull-right" ng-class="{'icon-chevron-down': isopen, 'icon-chevron-right': !isopen}"></i>
+              
+            </a>
+        </accordion-heading>
+          
+          <ng-if="{{answerDetail}}">
+          <div ng-model="answerDetail"><!--class="answerDetail well"-->
 
-    <div class="answerDetail well">
+            <span ng-bind-html="loadingIcon"></span>
 
-      <span ng-bind-html="loadingIcon"></span>
+            <p><strong>{{answerDetail.Title}}</strong></p>
+            
+            <div ng-bind-html="answerDetail.Content"></div>
+          
 
-      <p><strong>{{answerDetail.Title}}</strong></p>
-      
-      <div ng-bind-html="answerDetail.Content"></div>
-    </div>
+            <ng-if="answerDetail.Related">
+            <div class="relatedAnswers">
+              <p ng-bind-html="relatedText"></p>
+              <ul>
+                <li ng-repeat="rel in answerDetail.Related">
+                  <a ng-href="#/product_{{answerDetail.prodID}}/category_{{answerDetail.catID}}/detail_{{rel.ID}}">{{rel.Title}}</a>
+                </li>
+              </ul>
 
-    <ng-if="answerDetail.Related">
-    <div class="well relatedAnswers">
-      <p ng-bind-html="relatedText"></p>
-      <ul>
-        <li ng-repeat="rel in answerDetail.Related">
-          <a ng-href="#/product_{{answerDetail.prodID}}/category_{{answerDetail.catID}}/detail_{{rel.ID}}">{{rel.Title}}</a>
-        </li>
-      </ul>
+            </div>
+          </div>
 
-    </div>
-    </ng-if="answerDetail.Related">
-
-    <div id="footer-copyright" class="footer-list-container"><a href="http://www.expediainc.com/">Expedia, Inc.</a> All rights reserved.</div>
+      </accordion-group>
+    </accordion>
 
 </div>

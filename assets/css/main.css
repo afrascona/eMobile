@@ -1,6 +1,10 @@
 body{
 	/*padding:10px;*/
-	background: #666;
+	background: white;
+	font-family: Arial;
+}
+h1,h2,h3,h4 {
+	margin-left: 10px;
 }
 /*
 .ng-view{
@@ -9,6 +13,9 @@ body{
 */
 .viewsWrapper{
 	padding: 10px 10px;
+}
+.headerBar{
+	/*margin: 10px 10px 0px 10px;*/
 }
 .answerDetail{
 	/*margin:10px;*/
