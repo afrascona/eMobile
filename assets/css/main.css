@@ -6,13 +6,18 @@ body{
 h1,h2,h3,h4 {
 	margin-left: 10px;
 }
+form{
+	margin: 0px 10px;
+}
 /*
 .ng-view{
 	position:relative;
 }
 */
 .viewsWrapper{
-	padding: 10px 10px;
+	padding: 5px 5px;
+	border-right: 1px solid #f1f1f1;
+	border-left: 1px solid #f1f1f1;
 }
 .headerBar{
 	/*margin: 10px 10px 0px 10px;*/
@@ -86,7 +91,7 @@ ul ul{
 	border-right: 4px solid #0065b8 !important;
 }
 .headerBar{
-	border-radius: 8px;
+	/*border-radius: 8px;*/
 	border-top: 6px solid #ffcb00!important;
 	border-right: 4px solid #0065b8 !important;
 }
@@ -105,9 +110,9 @@ ul ul{
 	line-height: 8px;
 	height: 12px;
 	background-color: #f5f5f5;
-	border-radius: 4px;
+	/*border-radius: 4px;*/
 	border-bottom: 6px solid #ffcb00!important;
-	border-right: 4px solid #0065b8 !important;
+	/*border-right: 4px solid #0065b8 !important;*/
 }
 
 .well {
