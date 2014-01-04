@@ -67,46 +67,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-@font-face {
-  font-family: 'ISEcons';
-  src: url("assets/fonts/ISEcons_v4.eot");
-  src: url("assets/fonts/ISEcons_v4.eot?#iefix") format("embedded-opentype"), url("assets/fonts/ISEcons_v4.woff") format("woff"), url("assets/fonts/ISEcons_v4.ttf") format("truetype"), url("assets/fonts/ISEcons_v4.svg#ISEcons") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* line 9, ../sass/_main.scss */
+/* line 1, ../sass/_main.scss */
 body {
-  /*padding:10px;*/
   background: white;
   font-family: Arial;
   color: #666666 !important;
 }
 
 @media (max-width: 767px) {
-  /* line 17, ../sass/_main.scss */
+  /* line 8, ../sass/_main.scss */
   body {
     padding-left: 5px;
     padding-right: 5px;
   }
 }
-/* line 23, ../sass/_main.scss */
+/* line 14, ../sass/_main.scss */
 h1, h2, h3, h4, h5 {
   margin-left: 15px !important;
 }
 
-/* line 26, ../sass/_main.scss */
-.detailHeader {
-  margin-left: 15px !important;
-}
-
-/* line 29, ../sass/_main.scss */
+/* line 17, ../sass/_main.scss */
 form {
   margin: 10px 15px !important;
-  /*text-align: center;*/
 }
 
-/* line 33, ../sass/_main.scss */
+/* line 20, ../sass/_main.scss */
 input {
   margin-bottom: 0px !important;
   border-radius: 0px !important;
@@ -117,87 +102,52 @@ input {
 	position:relative;
 }
 */
-/* line 42, ../sass/_main.scss */
+/* line 29, ../sass/_main.scss */
 .viewsWrapper {
-  /*padding: 0px 5px;*/
   border-right: 1px solid #f1f1f1;
   border-left: 1px solid #f1f1f1;
 }
 
-/* line 47, ../sass/_main.scss */
-.headerBar {
-  /*margin: 10px 10px 0px 10px;*/
-}
-
-/* line 50, ../sass/_main.scss */
-.answerDetail {
-  /*margin:10px;*/
-}
-
-/* line 53, ../sass/_main.scss */
+/* line 34, ../sass/_main.scss */
 a {
   color: #005580;
 }
 
-/* line 56, ../sass/_main.scss */
+/* line 37, ../sass/_main.scss */
 ul {
   list-style-type: none;
 }
 
-/* line 59, ../sass/_main.scss */
+/* line 40, ../sass/_main.scss */
 ul ul {
   margin: 0px 0px 10px 50px;
   list-style-type: circle;
 }
 
-/* line 63, ../sass/_main.scss */
+/* line 44, ../sass/_main.scss */
 .articlesList {
   margin: 10px 0px 10px 50px;
   /*color: #0065b8;*/
 }
 
-/* line 67, ../sass/_main.scss */
+/* line 48, ../sass/_main.scss */
 .categoryLinks {
   cursor: pointer;
 }
 
-/* line 71, ../sass/_main.scss */
-.dropdown-menu {
-  padding: 10px 10px 10px 10px;
-}
-
-/* line 74, ../sass/_main.scss */
-.dropdown-menu li {
-  margin-left: 20px;
-  list-style-type: circle;
-  color: #0065b8;
-  line-height: 25px;
-}
-
-/* line 80, ../sass/_main.scss */
-.open > .dropdown-menu {
-  background: #f3f3f3;
-}
-
-/* line 84, ../sass/_main.scss */
+/* line 52, ../sass/_main.scss */
 .relatedAnswers li {
   list-style-type: circle;
   /*color: #0065b8;*/
 }
 
-/*
-.nav-pills>li>a {
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-*/
-/* line 94, ../sass/_main.scss */
+/* line 57, ../sass/_main.scss */
 .nav-tabs.nav-stacked > li:first-child > a {
   border-radius: 0px !important;
   padding-left: 25px !important;
 }
 
-/* line 98, ../sass/_main.scss */
+/* line 61, ../sass/_main.scss */
 .nav-tabs.nav-stacked > li > a {
   border-top: none !important;
   border-left: none !important;
@@ -206,103 +156,79 @@ ul ul {
   padding-left: 25px !important;
 }
 
-/* line 106, ../sass/_main.scss */
+/* line 69, ../sass/_main.scss */
 .breadcrumb {
-  /*
-  background-color: rgba(255, 198, 11, 0.35);
-  border-radius:25px;
-  */
   background: white;
   margin: 10px 12px;
   padding: 0px 0px;
-  /*border-radius:0;*/
+  width: 100%;
 }
 
-/* line 116, ../sass/_main.scss */
+/* line 75, ../sass/_main.scss */
 .breadcrumb > li {
   text-shadow: none;
 }
 
-/* line 119, ../sass/_main.scss */
+/* line 78, ../sass/_main.scss */
 .breadcrumb img {
   height: 25px;
 }
 
-/* line 122, ../sass/_main.scss */
+/* line 81, ../sass/_main.scss */
 .breadcrumb p {
   margin-bottom: 5px;
 }
 
-/* Accordion */
-/* line 128, ../sass/_main.scss */
-.accordion {
-  margin-bottom: 10px;
-}
-
-/* line 131, ../sass/_main.scss */
-.accordion-body.in {
-  overflow: visible;
-}
-
-/* line 132, ../sass/_main.scss */
-.accordion-group {
-  background: white;
-  border: 1px solid #cccccc;
-  border-radius: 0px !important;
-  margin-bottom: 0px !important;
-  /*border-right: 4px solid #0065b8 !important;*/
-}
-
-/* line 139, ../sass/_main.scss */
-.accordion-toggle {
-  background: #f1f1f1;
-}
-
-/* line 142, ../sass/_main.scss */
-.accordion-inner {
-  padding: 9px 0px !important;
-}
-
-/* line 145, ../sass/_main.scss */
-.accordion-heading i {
-  margin-right: 10px !important;
-}
-
-/* line 150, ../sass/_main.scss */
+/* line 85, ../sass/_main.scss */
 .headerBar {
-  /*border-radius: 8px;*/
   border-top: 6px solid #ffcb00 !important;
-  /*border-right: 4px solid #0065b8 !important;*/
+  width: 100%;
 }
 
-/* line 155, ../sass/_main.scss */
+/* line 89, ../sass/_main.scss */
 .headerBar p {
   margin: 0;
   background: white;
   padding: 5px;
 }
 
-/* line 160, ../sass/_main.scss */
+/* line 94, ../sass/_main.scss */
 .headerBar img {
   margin-left: 5px;
 }
 
-/* line 164, ../sass/_main.scss */
+/* line 98, ../sass/_main.scss */
 #footer-copyright {
   text-align: left;
   padding: 12px 0 5px 20px;
   line-height: 8px;
   height: 12px;
   background-color: #f5f5f5;
-  /*border-radius: 4px;*/
   border-bottom: 6px solid #ffcb00 !important;
-  /*border-right: 4px solid #0065b8 !important;*/
 }
 
-/* line 175, ../sass/_main.scss */
-.well {
-  margin-bottom: 10px;
-  /*border-right: 4px solid #0065b8 !important;*/
+/* line 108, ../sass/_main.scss */
+.followMeBar {
+  background: white;
+  border-bottom: solid 1px #cccccc;
+  border-top: solid 1px #cccccc;
+  padding: 1%;
+  position: relative;
+  z-index: 1;
+}
+
+/* line 116, ../sass/_main.scss */
+.followMeBar.fixed {
+  position: fixed;
+  top: 0;
+  width: 98%;
+  z-index: 0;
+  background: #f1f1f1;
+}
+
+/* line 123, ../sass/_main.scss */
+.followMeBar.fixed.absolute {
+  position: absolute;
 }
 
 /* line 1, ../sass/_animate.scss */
@@ -1190,8 +1116,8 @@ i.iseFontIcons {
 
 @font-face {
   font-family: 'ISEcons';
-  src: url("http://localhost:8080/eMobile/assets/fonts/ISEcons_v4.eot");
-  src: url("http://localhost:8080/eMobile/assets/fonts/ISEcons_v4.eot?#iefix") format("embedded-opentype"), url("http://localhost:8080/eMobile/assets/fonts/ISEcons_v4.woff") format("woff"), url("http://localhost:8080/eMobile/assets/fonts/ISEcons_v4.ttf") format("truetype"), url("http://localhost:8080/eMobile/assets/fonts/ISEcons_v4.svg#ISEcons") format("svg");
+  src: url("../../fonts/ISEcons_v4.eot");
+  src: url("../../fonts/ISEcons_v4.eot?#iefix") format("embedded-opentype"), url("../../fonts/ISEcons_v4.woff") format("woff"), url("../../fonts/ISEcons_v4.ttf") format("truetype"), url("../../fonts/ISEcons_v4.svg#ISEcons") format("svg");
   font-weight: normal;
   font-style: normal;
 }

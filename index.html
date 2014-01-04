@@ -37,14 +37,14 @@
   <body>
     <div ng-include src="'app/partials/breadcrumb.html'"></div>
     <div ng-include src="'app/partials/searchForm.html'"></div>
+    
     <div class="view-container">
       <div class="{{rootAnimation}}" ng-view></div>
     </div>
-    <!--ng-class="{'view-frame-0': currentPath == 'zero','view-frame-1': currentPath == 'one','view-frame-2': currentPath == 'two'}"-->
-    <!--{{rootScopeTest}}-->
 
     <div ng-include src="'app/partials/footer.html'"></div>
 
+    <script src="assets/js/sticky.js"></script>
     <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.7.0.js"></script>
 
   </body>

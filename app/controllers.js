@@ -1,5 +1,14 @@
 demoApp.controller('MainController', function ($scope, $route, $routeParams, $location, $templateCache, $rootScope, $timeout, $interval, GetCategories, SearchService) {
- 
+  
+  $scope.$on('$routeChangeSuccess', function () {
+    //$scope.addCrudControls();
+  });
+  
+  $scope.tester = function(){
+    console.log('tester');
+
+  }
+
   $scope.setTest = function(viewSet){
     $rootScope.rootAnimation = viewSet;
   }
@@ -14,17 +23,10 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
   }
   
   $scope.products = GetCategories;
+  
   $rootScope.initBread();
-
-  $scope.lastAccordion = '';
+  
   $scope.manageVis = function(id){
-    if($scope.lastAccordion == id){
-      $scope.repeatClick = false;
-      $scope.Accordion = '';
-    }else{
-      $scope.repeatClick = true;
-      $scope.lastAccordion = id;
-    }
     //console.log(id);
     for($i=$scope.products.length-1;$i>-1;$i--){
       //($scope.products[$i]['ID'] == id) ? $scope.products[$i]['Visible'] = true:$scope.products[$i]['Visible'] = false;
@@ -49,7 +51,6 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
   }else{
     $scope.manageVis('');
   }
-  
 
   $scope.svc = SearchService;
 
@@ -73,12 +74,8 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
       }
     });
     
-
-    //console.log($scope.products);
     $scope.loadingIcon = '<i class="icon-refresh"></i> Loading...';
     $scope.articleList = [];
-    //$scope.articleList[0] = {};
-    //$scope.articleList[0]['Title'] = "Loading...";
     $routeParams.prodID = prodID;
     $scope.prodID = prodID;
     $scope.catID = catID;
@@ -87,8 +84,6 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
     $scope.newList = $scope.svc.articles({prod:$routeParams.prodID, cat:$routeParams.catID, kfMethod:kfMethodName}).getArticles(function(data) {
         $scope.articleList = data;
         $scope.loadingIcon = '';
-        //$location.search('category',$routeParams.catID);
-        //$route.current = '/product_' + $routeParams.prodID + '/category_' + $routeParams.catID + '/';
     });
   }
   if($routeParams.prodID && $routeParams.catID){
@@ -126,6 +121,7 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
     }
   }
   */
+
 })
 /*
 .directive('loadingIcon', function() {
