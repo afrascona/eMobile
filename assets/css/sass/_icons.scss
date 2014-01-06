@@ -1,5 +1,6 @@
 i.iseFontIcons{
 	margin-right:15px;
+	margin-left:15px;
 	font-family: 'ISEcons';
 	speak: none;
 	font-style: normal;
@@ -8,6 +9,17 @@ i.iseFontIcons{
 	text-transform: none;
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
+}
+.btnSearch i {
+	font-family: 'ISEcons', Arial, sans-serif;
+	font-size: 17px;
+	color: #666666;
+	padding: 3px 0 0 0;
+	font-style: normal;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
 }
 
 .icon-triangle-down:before{content: "\21";}

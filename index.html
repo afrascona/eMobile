@@ -4,7 +4,8 @@
     <title>eMobile Angular & Bootstrap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="https://code.jquery.com/jquery.js"></script>
+    <!--<script src="https://code.jquery.com/jquery.js"></script>-->
+    <script src="assets/js/jquery-1.10.2.min.js"></script>
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-route.min.js"></script>
     <script src="lib/angular-sanitize.min.js"></script>
@@ -41,7 +42,7 @@
             <div ng-include src="'app/partials/searchForm.html'"></div>
         </div>
 
-        <div class="view-container">
+        <div class="view-container" id="view-containerWrapper">
           <div class="{{rootAnimation}}" ng-view></div>
         </div>
 

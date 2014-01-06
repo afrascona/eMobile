@@ -31,18 +31,41 @@ input{
 	position:relative;
 }
 .ng-view{
-	/*position:relative;*/
+	position:relative;
 }
 #headerBar{
+
 	width:100%;
 }
 .view-container{
 	width:100%;
+	position: relative;
+}
+#view-containerWrapper{
+	position:relative;
 }
 .viewsWrapper{
 	border-right: 1px solid #f1f1f1;
 	border-left: 1px solid #f1f1f1;
 	width:100%;
+	position:absolute;
+}
+#productsWrapper{
+	top:0px;
+	z-index:0;
+}
+#detailsWrapper{
+	top:60px;
+	z-index:0;
+
+}
+#searchFormWrapper{
+	position: fixed;
+	height: 60px;
+	top: 0px;
+	z-index: 2000;
+	background: white;
+	border-bottom: 1px solid blue;
 }
 #footerBar{
 	width:100%;
@@ -53,7 +76,6 @@ a{
 }
 ul{
 	list-style-type: none;
-	margin: 0px !important;
 }
 ul ul{
 	margin:0px 0px 10px 50px;
@@ -151,11 +173,17 @@ ul ul{
 }
 .followMeBar.fixed {
 	position: fixed;
-	top: 0;
+	top: 60px;
 	width: 98%;
 	z-index: 0;
 	background: #f1f1f1;
 }
 .followMeBar.fixed.absolute {
 	position: absolute;
+}
+.followColor{
+	background: #f1f1f1;
+}
+.followMeBar.number1{
+	background: #f1f1f1;
 }

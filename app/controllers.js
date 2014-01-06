@@ -70,8 +70,8 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
     $scope.prodID = prodID;
     $scope.catID = catID;
     $routeParams.catID = catID;
-    kfMethodName = 'getAngular';
-    $scope.newList = $scope.svc.articles({prod:$routeParams.prodID, cat:$routeParams.catID, kfMethod:kfMethodName}).getArticles(function(data) {
+    kfMethod = 'getAngular';
+    $scope.newList = $scope.svc.articles({prod:$routeParams.prodID, cat:$routeParams.catID, kfMethod:kfMethod}).getArticles(function(data) {
         $scope.articleList = data;
         $scope.loadingIcon = '';
     });
@@ -102,8 +102,8 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
     restrict: 'A',
     link: function(scope, element, attrs) {
       count++;
-      //$( element ).first('div').addClass( "number" + count );
-      $( element ).first('div').attr('id', 'number' + count );
+      $( element ).first('div').addClass( "number" + count );
+      //$( element ).first('div').attr('id', 'number' + count );
       //console.log(angular.element(element).scope());
       if(scope.$last){
         scope.headersLoaded = true;
@@ -112,24 +112,26 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
     }
   }
 })
-.directive('productsloaded', function($window) {
+.directive('productsloaded', function() {
   return {
     restrict: 'A',
     link: function(scope, element, attrs) {
       if(scope.$last && scope.headersLoaded == true){
 
-          var windowEl = angular.element($window);
-          windowEl.on('scroll', function() {
-            scope.$apply(function() {
-              //delete window.newStickies;
-              window.newStickies = new stickyTitles(jQuery(".followMeBar"));
-              window.newStickies.load();
+        window.instantiateOnceReady();
+        window.scrollTo(0,0);
+          /*
 
-              //scope[attrs.scrollPosition] = windowEl.scrollTop();
-              window.newStickies.scroll();
-            });
-          });
+          var el = document.querySelector("#productsWrapper");
+          //el.scrollTo(0,0);
+          var top = el.getBoundingClientRect().top;
+          console.log( "JS Top: " + top );
 
+          newStickies = new stickyTitles(jQuery(".followMeBar"));
+          newStickies.load();
+
+          //console.log("JQuery Top: "+jQuery("#myelementid").offset().top);
+          */
       }
     }
   }

@@ -1,7 +1,8 @@
-<div class="viewsWrapper" ng-controller="SearchController">
+<div class="viewsWrapper" ng-controller="SearchController" id="searchFormWrapper">
 	<form novalidate class="css-form">
 		<input type="text" ng-bind="searchTerm" ng-model="searchTerm" value="{{searchTerm}}" onclick="if(this.value!=''){this.value=''}" required />
-		<button ng-click='go(searchTerm,"view-frame-1")'>Search</button>
+		<div ng-click='go(searchTerm,"view-frame-1")'><i class="iseFontIcons icon-search">Search</i></div>
+
 	</form>
 	<!--<div>{{searchTerm}}</div>-->
 
