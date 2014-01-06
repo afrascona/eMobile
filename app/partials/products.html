@@ -1,11 +1,14 @@
 <div class="viewsWrapper">
-	<ng ng-repeat="prod in products">
-		<div class="followMeBar"><i class="iseFontIcons icon-{{prod.icon}}"></i>{{ prod.Name | uppercase }}</div>
 
-		<ul class="nav nav-tabs nav-stacked">
-			<li ng-repeat="cat in prod.Categories">
+		<div ng-repeat-start="prod in products" headersloaded class="followMeBar">
+			<i class="iseFontIcons icon-{{prod.icon}}"></i>
+			{{ prod.Name | uppercase }}
+		</div>
+
+		<ul class="nav nav-tabs nav-stacked" ng-repeat-end>
+			<li ng-repeat="cat in prod.Categories" productsloaded>
 				<a href='' ng-click='go("product_{{prod.ID}}/category_{{cat.ID}}","view-frame-1")'>{{cat.Name}}</a>
 			</li>
 		</ul>
-	</ng>
+
 </div>

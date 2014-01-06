@@ -1,0 +1,23 @@
+<div class="viewsWrapper">
+
+  <div ng-model="answerDetail" class="singleArticle">
+
+    <span ng-bind-html="loadingIconSingle"></span>
+
+    <p><strong>{{answerDetail.Title}}</strong></p>
+    
+    <div ng-bind-html="answerDetail.Content"></div>
+
+    <ng-if="answerDetail.Related">
+    <div class="relatedAnswers">
+      <p ng-bind-html="relatedText"></p>
+      <ul>
+        <li ng-repeat="rel in answerDetail.Related">
+          <a ng-href="#/detail_{{rel.ID}}">{{rel.Title}}</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>

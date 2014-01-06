@@ -35,15 +35,20 @@
 
   </head>
   <body>
-    <div ng-include src="'app/partials/breadcrumb.html'"></div>
-    <div ng-include src="'app/partials/searchForm.html'"></div>
-    
-    <div class="view-container">
-      <div class="{{rootAnimation}}" ng-view></div>
+    <div id="mainWrap">
+        <div id="headerBar">
+            <div ng-include src="'app/partials/breadcrumb.html'"></div>
+            <div ng-include src="'app/partials/searchForm.html'"></div>
+        </div>
+
+        <div class="view-container">
+          <div class="{{rootAnimation}}" ng-view></div>
+        </div>
+
+        <div id="footerBar">
+            <!--<div ng-include src="'app/partials/footer.html'"></div>-->
+        </div>
     </div>
-
-    <div ng-include src="'app/partials/footer.html'"></div>
-
     <script src="assets/js/sticky.js"></script>
     <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.7.0.js"></script>
 

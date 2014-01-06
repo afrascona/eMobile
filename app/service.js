@@ -22,7 +22,7 @@ demoApp.factory('SearchService', function($resource) {
         return $resource(
             'http://support.expedia.com/cc/kfController/searchAngularIse/1/:searchTerm',
             {kfMethod: opts.KfMethod, searchTerm: opts.searchTerm},
-            {getResults: { method:'JSONP', params: {callback: 'JSON_CALLBACK'}, isArray:false, cache: false, responseType:'json' } }
+            {getResults: { method:'JSONP', params: {callback: 'JSON_CALLBACK'}, isArray:true, cache: false, responseType:'json' } }
         );
     }
 

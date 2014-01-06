@@ -1,14 +1,14 @@
 <div class="viewsWrapper">
-	<div ng-controller="BreadcrumbController" class="headerBar">
-	  <!--<p><img src="assets/images/exp-logo.png" /></p>-->
-	  
-	  <div id="breadcrumb">
-	    <ul class="breadcrumb">
-	      <li ng-repeat="link in breadcrumb">
-	        <a href="" ng-click='go("{{link.destination}}","{{link.animation}}")'>{{link.Name | uppercase }}</a> <span class="divider"> / </span>
-	      </li>
-	      
-	    </ul>
-	  </div>
+	<div ng-controller="BreadcrumbController">
+	  	<!--
+		<div id="breadcrumb">
+			<ul class="breadcrumb">
+			  <li ng-repeat="link in breadcrumb">
+			    <a href="" ng-click='go("{{link.destination}}","{{link.animation}}")'>{{link.Name | uppercase }}</a> <span class="divider"> / </span>
+			  </li>
+			  
+			</ul>
+		</div>
+		-->
 	</div>
 </div>

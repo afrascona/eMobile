@@ -1,16 +1,16 @@
 <div class="viewsWrapper">
-    <div class="detailHeader"><h5 class="categoryHeader"><i aria-hidden="true" class="iseFontIcons icon-{{prodIcon}}"></i><!--{{prodName}}--> {{catName}}</h5></div>
-
+    <span class="loadingSearch" ng-bind-html="loadingIcon"></span>
     <accordion>
-    <accordion-group ng-repeat="ans in articleList" >
-        <accordion-heading>
-            <a href="" ng-click='getAnswerDetail({{prodID}},{{catID}},{{ans.ID}});'>{{ans.Title}}</a>
+    <accordion-group ng-repeat="art in resultList">
+        <accordion-heading is-open="isopen">
+            <a href="" ng-click='getAnswerDetail({{art.articles.ID}});'>{{art.articles.Title}}</a>
         </accordion-heading>
           
+          
           <ng-if="{{answerDetail}}">
-          <div ng-model="answerDetail"><!--class="answerDetail well"-->
+          <div ng-model="answerDetail">
 
-            <span ng-bind-html="loadingIcon"></span>
+            <span ng-bind-html="loadingIconAnswer"></span>
 
             <p><strong>{{answerDetail.Title}}</strong></p>
             
@@ -28,7 +28,7 @@
 
             </div>
           </div>
-
+          
       </accordion-group>
     </accordion>
 

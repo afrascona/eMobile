@@ -28,14 +28,14 @@ demoApp.config(['$routeProvider', function ($routeProvider) {
 			templateUrl: 'app/partials/detail.html',
 		})
 		
-		.when('/product_:prodID/category_:catID/detail_:ansID',
+		.when('/detail_:ansID',
 		{
 			reloadOnSearch: false,
-			controller: 'MainController',
-			templateUrl: 'app/partials/detail.html',
+			controller: 'SingleController',
+			templateUrl: 'app/partials/singleDetail.html',
 		})
 
-		.when('/search::searchTerm',
+		.when('/search_:searchTerm',
 		{
 			controller: 'SearchController',
 			templateUrl: 'app/partials/searchResults.html'

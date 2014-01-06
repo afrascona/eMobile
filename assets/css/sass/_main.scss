@@ -3,6 +3,12 @@ body{
 	font-family: Arial;
 	color: #666666 !important;
 }
+html, body {
+    /*
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    */
+}
 
 @media (max-width: 767px){
 	body {
@@ -15,20 +21,31 @@ h1,h2,h3,h4,h5 {
 	margin-left: 15px !important;
 }
 form{
-	margin: 10px 15px !important;
+	margin: 15px !important;
 }
 input{
 	margin-bottom:0px !important;
 	border-radius:0px !important;
 }
-/*
-.ng-view{
+#mainWrap{
 	position:relative;
 }
-*/
+.ng-view{
+	/*position:relative;*/
+}
+#headerBar{
+	width:100%;
+}
+.view-container{
+	width:100%;
+}
 .viewsWrapper{
 	border-right: 1px solid #f1f1f1;
 	border-left: 1px solid #f1f1f1;
+	width:100%;
+}
+#footerBar{
+	width:100%;
 }
 
 a{
@@ -36,6 +53,7 @@ a{
 }
 ul{
 	list-style-type: none;
+	margin: 0px !important;
 }
 ul ul{
 	margin:0px 0px 10px 50px;
@@ -53,7 +71,15 @@ ul ul{
 	list-style-type: circle;
 	/*color: #0065b8;*/
 }
+.singleArticle{
+	margin-left: 17px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
 
+.nav{
+	margin-bottom:0px !important;
+}
 .nav-tabs.nav-stacked>li:first-child>a{
 	border-radius:0px !important;
 	padding-left:25px !important;
@@ -66,21 +92,31 @@ ul ul{
 	padding-left:25px !important;
 }
 
+.accordion-group{
+	border-radius:0px !important;
+	margin-bottom:0px !important;
+}
+
+.loadingSearch{
+	margin-left: 15px;
+	margin-bottom: 10px;
+	display: block;
+}
+
 .breadcrumb{
+	margin: 0 !important;
 	background:white;
-	margin:10px 12px;
-	padding: 0px 0px;
 	width:100%;
+	padding: 4px 0px 3px 15px !important;
+	border-radius:0px !important;
 }
 .breadcrumb>li{
 	text-shadow:none;
 }
-.breadcrumb img{
-	height: 25px;
-}
 .breadcrumb p{
-	margin-bottom: 5px;
+	margin-bottom: 0px;
 }
+
 
 .headerBar{
 	border-top: 6px solid #ffcb00!important;
