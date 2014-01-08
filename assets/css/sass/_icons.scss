@@ -10,17 +10,21 @@ i.iseFontIcons{
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 }
+
 .btnSearch i {
 	font-family: 'ISEcons', Arial, sans-serif;
 	font-size: 17px;
 	color: #666666;
 	padding: 3px 0 0 0;
 	font-style: normal;
-	position: absolute;
-	left: 0;
-	top: 0;
 	width: 100%;
 }
+
+.postfix {
+	height: 25px;
+	width: 30px;
+}
+[class^="icon-"], [class*=" icon-"] { height: 10px !important; }
 
 .icon-triangle-down:before{content: "\21";}
 .icon-chevron-up:before{content: "\22";}
@@ -29,7 +33,7 @@ i.iseFontIcons{
 .icon-bags1:before{content: "\25";}
 .icon-bags2:before{content: "\26";}
 .icon-bags3:before{content: "\27";}
-.icon-search:before{content: "\28";}
+.icon-search2:before{content: "\28";}
 .icon-package:before{content: "\29";}
 .icon-plus:before{content: "\2a";}
 .icon-minus:before{content: "\2b";}

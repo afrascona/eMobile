@@ -1,7 +1,7 @@
 <div class="viewsWrapper" ng-controller="SearchController" id="searchFormWrapper">
 	<form novalidate class="css-form">
-		<input type="text" ng-bind="searchTerm" ng-model="searchTerm" value="{{searchTerm}}" onclick="if(this.value!=''){this.value=''}" required />
-		<div ng-click='go(searchTerm,"view-frame-1")'><i class="iseFontIcons icon-search">Search</i></div>
+		<input style="float:left;" type="text" ng-bind="searchTerm" ng-model="searchTerm" value="{{searchTerm}}" onclick="if(this.value!=''){this.value=''}" required />
+		<div ng-click='go(searchTerm,"view-frame-1")' style="float:left;"><span class="postfix"><a href="" class="btnSearch"><i aria-hidden="true" class="iseFontIcons icon-search2"></i></a></span></div>
 
 	</form>
 	<!--<div>{{searchTerm}}</div>-->
