@@ -1,3 +1,7 @@
+i{
+	color:red !important;
+}
+
 i.iseFontIcons{
 	margin-right:15px;
 	margin-left:15px;
@@ -9,6 +13,7 @@ i.iseFontIcons{
 	text-transform: none;
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
+	color: red !important;
 }
 
 .btnSearch i {
@@ -20,11 +25,12 @@ i.iseFontIcons{
 	width: 100%;
 }
 
-.postfix {
-	height: 25px;
-	width: 30px;
+[class^="icon-"], [class*=" icon-"] { height: 12px !important; }
+.icon-refresh{
+	height:15px !important;
+	color:red !important;
+	font-color:red !important;
 }
-[class^="icon-"], [class*=" icon-"] { height: 10px !important; }
 
 .icon-triangle-down:before{content: "\21";}
 .icon-chevron-up:before{content: "\22";}

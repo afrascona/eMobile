@@ -64,7 +64,7 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
       }
     });
     
-    $scope.loadingIcon = '<i class="icon-refresh"></i> Loading...';
+    $scope.loadingIcon = '<i class="icon-refresh" style="height:15px !important"></i> Loading...';
     $scope.articleList = [];
     $routeParams.prodID = prodID;
     $scope.prodID = prodID;
@@ -82,7 +82,7 @@ demoApp.controller('MainController', function ($scope, $route, $routeParams, $lo
 
   $scope.getAnswerDetail = function (prodID, catID, ansID) {
     $scope.answerDetail = [];
-    $scope.loadingIcon = '<i class="icon-refresh"></i> Loading...';
+    $scope.loadingIcon = '<i class="icon-refresh" style="height:15px !important"></i> Loading...';
     $scope.answerDetail = false;
     kfMethod = 'getFullAnswersAngularAjax';
     $scope.newDetail = $scope.svc.answer({ans: ansID, kfMethod:kfMethod}).getAnswer(function(detail) {
@@ -145,14 +145,16 @@ demoApp.controller('BreadcrumbController', function ($scope, $route, $routeParam
   };
 
   $rootScope.setBread = function(){
-
+    /*
     switch(arguments.length){
       case 1: newItem = { 'ID': null, 'Name': 'Search', 'destination': '', 'animation': 'view-frame-2' }; break;
       case 2: newItem = { 'ID': arguments[0], 'Name': arguments[1], 'destination': '/product_' + arguments[0], 'animation': 'view-frame-2' }; break;
       case 4: newItem = { 'ID': arguments[2], 'Name': arguments[3], 'destination': '/product_' + arguments[0] + '/category_' + arguments[2], 'animation': 'view-frame-2' }; break;
       case 6: newItem = { 'ID': arguments[4], 'Name': arguments[5], 'destination': '/product_' + arguments[0] + '/category_' + arguments[2] + '/detail_' + arguments[4], 'animation': 'view-frame-2' }; break;
     }
+
     $rootScope.breadcrumb.push(newItem);
+    */
   };
 
   $scope.go = function(path,newAnimation) {
@@ -172,7 +174,7 @@ demoApp.controller('SearchController', function ($scope, $route, $routeParams, $
     $routeParams.searchTerm = searchVar;
     $scope.searchTerm = searchVar;
 
-    $scope.loadingIcon = '<i class="icon-refresh"></i> Loading...';
+    $scope.loadingIcon = '<i class="icon-refresh" style="height:15px !important"></i> Loading...';
     $scope.resultList = [];
     //$scope.articleList[0] = {};
     //$scope.articleList[0]['Title'] = "Loading...";
@@ -192,7 +194,7 @@ demoApp.controller('SearchController', function ($scope, $route, $routeParams, $
 
   $scope.getAnswerDetail = function (ansID) {
     $scope.answerDetail = [];
-    $scope.loadingIconAnswer = '<i class="icon-refresh"></i> Loading...';
+    $scope.loadingIconAnswer = '<div class="loadingSearch"><i class="icon-refresh" style="display:block;height:150px !important"></i> Loading...</div>';
     $scope.answerDetail = false;
     kfMethod = 'getFullAnswersAngularAjax';
     $scope.newDetail = $scope.svc.answer({ans: ansID, kfMethod:kfMethod}).getAnswer(function(detail) {
@@ -219,7 +221,7 @@ demoApp.controller('SingleController', function ($scope, $route, $routeParams, $
   $scope.getAnswerDetail = function (ansID) {
     $scope.ansID = ansID;
     $scope.answerDetail = [];
-    $scope.loadingIconSingle = '<i class="icon-refresh"></i> Loading...';
+    $scope.loadingIconSingle = '<div class="loadingSearch"><i class="icon-refresh" style="display:block;height:150px !important"></i> Loading...</div>';
     $scope.answerDetail = false;
     kfMethod = 'getFullAnswersAngularAjax';
     $scope.newSingleDetail = $scope.svc.answer({ans: ansID, kfMethod:kfMethod}).getAnswer(function(detail) {

@@ -1,5 +1,8 @@
 <div class="viewsWrapper">
-    <span class="loadingSearch" ng-bind-html="loadingIcon"></span>
+  <div class="searchResults">
+    
+    <div class="loadingSearch" ng-bind-html="loadingIcon"></div>
+    
     <accordion>
     <accordion-group ng-repeat="art in resultList">
         <accordion-heading is-open="isopen">
@@ -31,5 +34,5 @@
           
       </accordion-group>
     </accordion>
-
+  </div>
 </div>
